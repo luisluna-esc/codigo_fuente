@@ -1,0 +1,13 @@
+.git
+data
+respaldos
+server-config.json
+acceso-servidor.json
+CLAVE_INSTALACION.txt
+*.exe
+*.log
+*.rar
+*.zip
+app/*.gz
+app/music-runtime.js
+app/music-runtime.css

@@ -1,0 +1,42 @@
+/* Blue uses the same royal palette throughout the shell and every workspace.
+   Scope to this theme so Day, Night, gold approval and certificate paper retain
+   their own colors. */
+html[data-music592="true"][data-sgl545-mode="blue"],
+html[data-music592="true"][data-sgl545-mode="blue"] body{
+  --bg:#e7f0ff;--surface:#eaf2ff;--surface2:#dce8ff;--surface-soft:#dce8ff;
+  --card:#eaf2ff;--border:#afc4ed;--text:#142d52;--muted:#405f8b;
+  --nav:#2947c5;--primary:#2948cb;--primary-dark:#213eaa;--accent:#2948cb;
+  --accent-2:#4e72e7;--accent-soft:#dce8ff;--hero-start:#2843bd;--hero-end:#506ed0;
+  --music614-hero:linear-gradient(115deg,#2843bd 0%,#3156d7 60%,#506ed0 100%);
+}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar{
+  background:linear-gradient(160deg,#2943bd 0%,#2d50d2 65%,#3358d9 100%)!important;
+  border-color:#4766da!important;color:#fff!important;
+}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar :is(.side-brand,.user-meta) :is(strong,small){color:#fff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button{color:#f0f4ff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button:not(.active)>b{color:#e6edff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button.active{color:#213eaa!important;background:#fff!important;border-color:#fff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button:not(.active):hover{background:#2442b3!important}
+/* Explicit button selector wins over the older sidebar text inheritance. */
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar .side-user button.logout,
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar .side-user button.logout *{
+  color:#213eaa!important;background:#fff!important;border-color:#fff!important;
+  opacity:1!important;text-shadow:none!important;box-shadow:none!important;
+}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar .side-user button.logout:hover{background:#e1eaff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.welcome-hero,.program-hero,.sgm602-hero){background:var(--music614-hero)!important;color:#fff!important;border-color:#5675df!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.welcome-hero,.program-hero,.sgm602-hero) :is(h1,h2,.page-title,.subtitle,.eyebrow,p){color:#fff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .table th{background:#2947c5!important;color:#fff!important;border-color:#5271db!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .table td{background:#e7efff!important;color:#142d52!important;border-color:#b7caf0!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .table tbody tr:nth-child(even) td{background:#dce8ff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .table tbody tr:hover td{background:#ccddff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .btn.primary{background:#2948cb!important;color:#fff!important;border-color:#2948cb!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .btn.ghost{background:#e1eaff!important;color:#213eaa!important;border-color:#adc1ed!important;box-shadow:0 2px 7px #254bc514!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.field,input:not([type=checkbox]):not([type=color]):not([type=file]),select,textarea){background:#e1eaff!important;color:#142d52!important;border-color:#adc1ed!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.sgl551-option-icon,.sgm597-icon,.sgm602-badges svg,.sgm602-welcome svg,.sgl551-leader-progress strong){color:#2948cb!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sgl551-option-icon{background:#d7e6ff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(button,a,input,select,textarea):focus-visible{outline-color:#1739ab!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar :is(button,a):focus-visible{outline:3px solid #fff!important;outline-offset:3px}
+
+html[data-music592="true"][data-sgl545-mode="blue"] body .topbar{background:#eaf2ff!important;border-color:#afc4ed!important}

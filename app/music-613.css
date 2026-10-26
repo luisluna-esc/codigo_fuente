@@ -1,0 +1,29 @@
+/* Distinct blue palette for every management and personal view. */
+html[data-music592="true"][data-sgl545-mode="blue"],html[data-music592="true"][data-sgl545-mode="blue"] body{--bg:#e7f0ff;--surface:#f5f9ff;--surface2:#dceaff;--surface-soft:#dceaff;--text:#142d52;--muted:#49658c;--border:#b7cdeb;--nav:#14366e;--primary:#205ad3;--primary-dark:#1646aa;--accent:#205ad3;--accent-soft:#d2e3ff;--gold:#205ad3;--gold-soft:#d2e3ff;--blue:#205ad3;--soft:#e0edff;--shadow:0 12px 35px #173b7615;color-scheme:light;background:#e7f0ff!important;color:#142d52!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.main,.content,.shell,.app-shell){background:transparent!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.card,.kpi,.req-row,.reading-item,.table th,.table td,.modal,.modal-head,.modal-foot,.sgl-journey-card){background:var(--surface)!important;color:var(--text);border-color:var(--border)!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar{background:#14366e!important;border-color:#244c87!important;color:#f0f6ff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar :is(.side-brand strong,.side-brand small,.user-meta strong,.user-meta small,.logout){color:#e4efff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button{color:#dae8ff!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button.active{background:#d8e7ff!important;color:#123c81!important;border-color:#9dbff7!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body :is(.field,input:not([type=checkbox]):not([type=color]):not([type=file]),select){background:var(--surface-soft);color:var(--text);border-color:var(--border)}
+html[data-music592="true"][data-sgl545-mode="blue"] body .btn.primary{background:#205ad3!important;color:#fff!important;border-color:#205ad3!important}
+/* The notification count owns a column; long labels wrap inside theirs. */
+html body .sidebar #nav button[data-page]{display:grid!important;grid-template-columns:22px minmax(0,1fr);align-items:center;gap:9px;padding:10px 12px!important;box-sizing:border-box;min-width:0;width:100%;overflow:visible}
+html body .sidebar #nav button[data-page]>span{min-width:0;white-space:normal!important;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;text-align:left;line-height:1.3}
+html body .sidebar #nav button[data-page]>.count{position:static!important;inset:auto!important;transform:none!important;justify-self:end;display:inline-flex!important;align-items:center;justify-content:center;min-width:22px;min-height:22px;box-sizing:border-box;padding:2px 5px;margin:0!important;border-radius:99px;background:#dc2536!important;color:white!important;font-style:normal;font-size:11px;line-height:1.2;white-space:nowrap;z-index:1}
+.music613-investiture-status progress{display:block;width:100%;margin-top:12px}
+html body .sgl551-back-bar,html body .sgl551-modal-back,html body #music612_back{display:none!important}
+.music613-editor-history{display:flex;gap:6px}.music613-editor-history button{white-space:nowrap}
+html body .music592-editor .music613-font-status{grid-column:1/-1;margin:0;font-size:12px}
+html body .music592-editor .music613-font-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+html body .music592-editor .music613-font-tools label{font-size:12px}
+.music613-field{box-sizing:border-box}.music613-signature{border-top:1px dashed #527dab!important;padding-top:0!important}
+.music613-signature:before,.music613-signature:after{content:none!important;display:none!important}
+html body .music592-editor .music613-checks{display:flex;gap:12px;flex-wrap:wrap}
+html body .music592-editor .music613-checks label{display:inline-flex;flex-direction:row;align-items:center;gap:4px}
+@media(max-width:760px){html body .sidebar #nav button[data-page]{padding:9px 10px!important;gap:8px}.music613-editor-history button{font-size:12px}.music592-tools{gap:8px}}
+
+html body .sidebar #nav button[data-page]:has(>.count){grid-template-columns:22px minmax(0,1fr) auto}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar .logout{color:#14366e!important;background:#d8e7ff!important;border-color:#9dbff7!important}
+html[data-music592="true"][data-sgl545-mode="blue"] body .sidebar #nav button:not(.active)>b{color:#d6e6ff!important}

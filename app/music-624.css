@@ -1,0 +1,14 @@
+/* Compact ministry cards: three columns on desktop, readable on small screens. */
+#music610_ministries.music610-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
+#music610_ministries .music610-ministry{padding:14px!important;gap:5px;border-radius:16px;box-shadow:0 3px 12px #10283a08;content-visibility:auto;contain-intrinsic-size:auto 190px}
+.music624-ministry-heading{min-width:0}.music624-ministry-heading .eyebrow{font-size:10px;letter-spacing:.07em}.music624-ministry-heading h2{font-size:17px;line-height:1.25;margin:3px 0 0!important}
+.music624-code{font-size:11px;font-weight:600;letter-spacing:.025em}.music624-church{font-size:12px!important;line-height:1.35;overflow-wrap:anywhere}.music610-ministry>small{font-size:10px;opacity:.7}
+#music610_ministries .music624-card-actions{gap:5px;padding-top:6px;margin-top:auto;display:flex;flex-wrap:wrap}
+#music610_ministries .btn{min-height:32px;padding:5px 8px!important;font-size:11px;line-height:1.2;border-radius:8px;box-shadow:none;white-space:normal}
+#music610_ministries .btn:focus-visible{outline:2px solid #287bb8;outline-offset:2px}.music624-more{grid-column:1/-1;text-align:center;padding:10px}
+@media(max-width:850px){#music610_ministries.music610-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:540px){#music610_ministries.music610-grid{grid-template-columns:minmax(0,1fr)}#music610_ministries .music610-ministry{padding:12px!important}#music610_ministries .btn{min-height:36px}}
+
+.music624-card-actions .btn{display:inline-flex;align-items:center;gap:4px}.music624-card-actions svg{width:13px;height:13px;flex:none}
+
+.music625-mission{position:fixed;right:max(12px,env(safe-area-inset-right));bottom:max(8px,env(safe-area-inset-bottom));z-index:30;display:block;width:max-content;max-width:calc(100vw - 24px);margin:0;padding:0;text-align:right;font-size:10px;font-weight:400;line-height:1.4;color:var(--muted,#667580);pointer-events:none}.music626-top-context{display:none!important}@media print{.music625-mission{display:none}}

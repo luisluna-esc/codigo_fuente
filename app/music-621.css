@@ -1,0 +1,6 @@
+html body .music592-editor #music592_stage .music621-editing{cursor:text;user-select:text;-webkit-user-select:text;outline:2px solid #3472ce;outline-offset:3px;min-height:1em;white-space:pre-wrap}
+.music592-editor #music592_stage[data-multiple=true] .music619-handle{display:none}
+.music621-selection{display:flex;flex-direction:column;gap:9px;font-size:12px}
+.music621-selection p{margin:0;line-height:1.5}
+.music621-selection .btn{font-size:12px;min-height:32px;padding:6px 9px}
+.music592-editor[aria-busy=true] #music617_preview{cursor:progress}

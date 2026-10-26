@@ -1,0 +1,150 @@
+/* New controls are entirely desktop-scoped. */
+.sgl532-controls,.sgl532-window-actions,.sgl532-rotate{display:none}
+@media(min-width:821px){
+ #modal_root .modal.sgl532-desktop .rich-toolbar,#modal_root .modal.sgl532-desktop .sgl532-legacy-field,#modal_root .modal.sgl532-desktop .sgl510-mic-test,#modal_root .modal.sgl532-desktop .sgl5034-maximize-toggle,#modal_root .modal.sgl532-desktop .modal-close{display:none!important}
+ #modal_root .modal.sgl532-desktop{width:calc(100vw - 20px)!important;max-width:1660px!important}
+ #modal_root .modal.sgl532-desktop .modal-grid{grid-template-columns:minmax(0,1fr) 270px!important;gap:12px!important}
+ #modal_root .modal.sgl532-desktop .modal-grid>section{min-width:0!important}
+ #modal_root .modal.sgl532-desktop>.modal-head{display:none!important}
+ .sgl532-desktop .sgl5037-paper-toolbar{display:flex!important;flex-wrap:nowrap!important;gap:6px;padding:8px!important;align-items:center;background:#f8fafc;position:sticky;top:0;z-index:25;min-width:0}
+ .sgl532-desktop .sgl5037-paper-toolbar-title{order:0;margin-right:4px}
+ .sgl532-desktop .sgl532-controls{display:flex;align-items:center;flex-wrap:nowrap;gap:5px;flex:1 1 0;min-width:0;overflow-x:auto;overflow-y:hidden;padding:4px 2px;order:1;scrollbar-width:thin;overscroll-behavior-x:contain}
+ .sgl532-controls>*{flex-shrink:0}
+ .sgl532-desktop .sgl5037-paper-toolbar-title,.sgl532-desktop .sgl5037-paper-zoom,.sgl532-desktop .sgl532-window-actions{flex-shrink:0}
+ .sgl532-desktop .sgl5037-paper-zoom{order:2;margin-left:auto}
+ .sgl532-desktop .sgl532-window-actions{display:flex;gap:5px;order:3}
+ .sgl532-group{display:flex;align-items:center;gap:2px;padding-right:5px;border-right:1px solid #cbd5e1}
+ .sgl532-controls button,.sgl532-controls select,.sgl532-window-actions button,.sgl532-rotate button{height:32px;min-width:30px;padding:4px 6px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#24364a;font:12px Arial,sans-serif;cursor:pointer}
+ .sgl532-controls button:hover,.sgl532-rotate button:hover{background:#e8f1fa;border-color:#477fa6}
+ .sgl532-controls button[aria-pressed="true"]{background:#d6e8fa;border-color:#477fa6}
+ .sgl532-controls button:focus-visible,.sgl532-controls select:focus-visible,.sgl532-controls input:focus-visible,.sgl532-window-actions button:focus-visible{outline:3px solid #4f90ce;outline-offset:2px}
+ .sgl532-controls button:disabled,.sgl532-controls select:disabled,.sgl532-controls input:disabled,.sgl532-rotate button:disabled{opacity:.45;cursor:default}
+ .sgl532-controls svg,.sgl532-window-actions svg{display:block;width:18px;height:18px}
+ .sgl532-controls select[data-format="font"]{max-width:130px}
+ .sgl532-controls select[data-format="size"]{width:49px}
+ .sgl532-controls select[data-format="bullets"]{width:45px}
+ .sgl532-color{display:flex;flex-direction:column;align-items:center;justify-content:center;font:bold 13px Arial,sans-serif;width:29px;height:32px;background:#fff;border:1px solid #cbd5e1;border-radius:6px;cursor:pointer;line-height:13px}
+ .sgl532-color input{width:24px;height:12px;padding:0;border:0;background:transparent;cursor:pointer}
+ .sgl532-color input::-webkit-color-swatch-wrapper{padding:0}.sgl532-color input::-webkit-color-swatch{border:0}
+ .sgl532-controls .sgl532-mic{display:flex;align-items:center;gap:4px;font-size:11px;white-space:nowrap}
+ .sgl532-controls .sgl532-mic span{display:none}
+ .sgl532-controls .sgl532-mic{color:#08669b}
+ .sgl532-window-actions .sgl533-dictate{color:#087443;background:#dcfce7;border-color:#86d8a2}
+ .sgl532-window-actions .sgl533-dictate[aria-pressed="true"]{background:#078342;color:#fff;border-color:#056b35}
+ .sgl532-window-actions .sgl533-delete{color:#b42318;background:#ffebe8;border-color:#f6afa6}
+ #modal_root .modal.sgl532-desktop .sgl-leader-dictation-fab,#modal_root .modal.sgl532-desktop [data-sgl5031-delete-progress-head],#modal_root .modal.sgl532-desktop .sgl5088-delete-progress-modal{display:none!important}
+ .sgl532-controls [hidden],.sgl532-window-actions [hidden]{display:none!important}
+ .sgl532-window-actions .sgl532-max{color:#08669b;background:#e7f2fb;border-color:#82b6d6}
+ .sgl532-window-actions .sgl532-close{color:#b42318;background:#ffebe8;border-color:#f6afa6}
+ .sgl532-desktop .modal-grid>aside{display:flex!important;flex-direction:column;gap:10px!important}
+ .sgl532-desktop .modal-grid>aside>*{order:4}
+ .sgl532-desktop .modal-grid>aside>[data-sgl5034-card="help"]{order:0!important}
+ .sgl532-desktop .modal-grid>aside>[data-sgl5034-card="files"]{order:1!important}
+ .sgl532-desktop [data-sgl5034-card="files"]{display:flex!important;flex-direction:column}
+ .sgl532-desktop [data-sgl5034-card="files"]>.sgl532-rotate{order:2}
+ .sgl532-desktop .modal-grid>aside>[data-sgl5034-card="selection"]{order:2!important}
+ .sgl532-desktop .modal-grid>aside>[data-sgl5034-card="tools"]{order:3!important;padding:0!important;border:0!important;background:none!important;box-shadow:none!important}
+ .sgl532-desktop [data-sgl5034-card="tools"]>.sgl5034-side-card-title,.sgl532-desktop [data-sgl5034-card="help"]>.sgl5034-side-card-title{display:none!important}
+ .sgl532-desktop .sgl5031-howto{border:1px solid #e5b73c!important;background:#fffae7!important;border-radius:10px!important}
+ .sgl532-desktop .sgl5031-howto>summary{color:#755000!important;background:#fff0b7!important;padding:11px!important;font-size:12px!important;font-weight:800!important;width:100%!important}
+ .sgl532-desktop .sgl5031-howto>summary:after{content:' ▾'}
+ .sgl532-desktop .sgl532-rotate{display:block!important;position:static!important;transform:none!important;padding:8px 0 0!important;background:none!important;box-shadow:none!important;opacity:1!important}
+ .sgl532-rotate small{display:block;color:#536273;font-size:11px;margin-bottom:6px}.sgl532-rotate>div{display:flex;gap:5px;flex-wrap:wrap}
+ #modal_root .sgl532-desktop .sgl532-rotate button{position:static!important;width:auto!important;height:32px!important;padding:4px 8px!important;border-radius:6px!important;transform:none!important;font:12px Arial,sans-serif!important}
+ .sgl532-desktop #req_text .sgl5039-page-body :is(p,div,span,b,strong,i,em,u){-webkit-text-fill-color:currentColor!important}
+ .sgl532-desktop #req_text .sgl5039-page-body span[style*="color"]{-webkit-text-fill-color:currentColor!important}
+ .sgl532-desktop .sgl532-footer-close{font-size:0!important;background:#ffebe8!important;color:#b42318!important;border-color:#f6afa6!important;min-width:34px}
+ .sgl532-desktop .sgl532-footer-close:after{content:'×';font:22px Arial,sans-serif}
+}
+@media(min-width:821px) and (max-width:1250px){
+ .sgl532-desktop .sgl5037-paper-toolbar-title{font-size:0!important;margin:0!important}
+ .sgl532-desktop .sgl5037-paper-toolbar-title:before{content:'▤';font:18px Arial,sans-serif}
+ .sgl532-desktop .sgl5037-paper-zoom{display:none!important}
+ .sgl532-controls select[data-format="font"]{width:76px}
+ .sgl532-desktop .sgl532-controls{gap:3px}
+ .sgl532-group{gap:1px;padding-right:3px}
+}
+
+.sgl532-desktop .sgl532-controls{flex-wrap:nowrap!important;overflow-x:auto;min-width:0;scrollbar-width:thin}
+.sgl532-desktop .sgl532-group{flex:0 0 auto}
+.sgl532-desktop [data-turn]{width:auto!important;min-width:48px;gap:2px}
+.sgl532-desktop [data-turn] small{font:600 9px Arial}
+
+@media(min-width:821px){#modal_root .modal:has(#req_text) .rich-toolbar,#modal_root .modal:has(#req_text) .sgl510-mic-test,#modal_root .modal:has(#req_text) .sgl5034-maximize-toggle{display:none!important}}
+
+/* 5.44: page creation is accessible on both layouts. */
+.sgl537-page-actions{display:flex;flex:0 0 auto;justify-content:flex-end;padding:5px 10px;background:#f8fafc;border-bottom:1px solid #d6dde5}
+#req_text [data-sgl-page-break="1"]{display:block!important;height:0!important;min-height:0!important;line-height:0!important;margin:0!important;padding:0!important;overflow:hidden}
+
+@media(max-width:820px){.sgl5093-mobile-editor .sgl537-page-actions{position:fixed;top:0;left:0;right:0;z-index:30;min-height:44px}.sgl5093-mobile-editor .sgl5037-paper-viewport{padding-top:48px!important}}
+/* 5.44: requested desktop simplification and shared clipboard controls. */
+@media(min-width:821px){.sgl532-desktop .sgl5037-paper-toolbar-title,.sgl532-desktop .sgl532-highlight,.sgl532-desktop #sgl5037_report_zoom_value,.sgl532-desktop .sgl532-max{display:none!important}}
+.sgl537-page-actions{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.sgl539-clipboard{display:flex;gap:4px;flex-shrink:0}.sgl539-clipboard button{font:inherit;font-size:12px;padding:7px 9px;border:1px solid #cbd5e1;border-radius:6px;background:#fff;color:#172033;cursor:pointer}
+#req_text figure.sgl539-selected{outline:2px solid #2563eb;outline-offset:3px}
+@media(max-width:820px){.sgl537-page-actions{gap:4px;padding-left:6px!important;padding-right:6px!important}.sgl537-page-actions>button{font-size:11px!important;padding:6px!important}.sgl539-clipboard button{font-size:11px;padding:6px}}
+
+/* 5.44: rotation controls on the selected photo, desktop only. */
+.sgl543-photo-turns{display:none!important}
+@media(min-width:821px){
+ .sgl532-desktop figure[data-sgl-photo-id]>.sgl543-photo-turns:not([hidden]){position:absolute;left:7px;right:7px;bottom:14px;z-index:40;display:flex!important;justify-content:space-between;pointer-events:none}
+ .sgl543-photo-turns button{pointer-events:auto;display:flex;align-items:center;gap:3px;min-width:38px;height:32px;padding:3px 6px;border:1px solid #246888;border-radius:7px;background:white;color:#134c6b;box-shadow:0 1px 5px #0003;cursor:pointer;font:22px Arial}
+ .sgl543-photo-turns small{font-size:10px}
+ .sgl543-photo-turns button:disabled{opacity:.5;cursor:wait}
+ .sgl543-photo-turns button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+}
+@media print{.sgl543-photo-turns{display:none!important}}
+
+/* 5.48: all available browser space, one horizontally scrollable control row. */
+@media(min-width:821px){
+ #modal_root .modal-bg:has(.sgl532-desktop){padding:0!important;align-items:stretch!important}
+ #modal_root .modal.sgl532-desktop{width:100vw!important;max-width:none!important;height:100dvh!important;max-height:100dvh!important;border-radius:0!important;display:flex!important;flex-direction:column!important}
+ #modal_root .modal.sgl532-desktop>.modal-body{flex:1;min-height:0;overflow:hidden!important;padding:8px!important}
+ #modal_root .modal.sgl532-desktop .modal-grid{height:100%!important;min-height:0!important}
+ #modal_root .modal.sgl532-desktop .modal-grid>section{height:100%;min-height:0;display:flex;flex-direction:column}
+ .sgl532-desktop .sgl5037-paper-viewport{flex:1!important;min-height:0!important;max-height:none!important;height:auto!important;overflow:auto!important}
+ .sgl532-desktop .sgl5031-page-shell{flex-shrink:0}
+ .sgl532-desktop .modal-grid>aside{overflow:auto;min-height:0}
+ .sgl532-desktop .sgl532-controls .sgl537-page-actions{display:flex;flex:0 0 auto;border:0;padding:0;gap:4px;white-space:nowrap;flex-wrap:nowrap}
+ .sgl532-desktop .sgl547-page-tools{width:auto;display:flex;flex-wrap:nowrap;gap:4px}
+ .sgl532-desktop .sgl547-page-tools button{min-height:32px;flex:none}
+ .sgl532-desktop .sgl534-turn{display:none!important}
+}
+.sgl548-layout-menu{position:fixed;z-index:2147483640;width:260px;padding:16px;border:1px solid var(--border);border-radius:16px;background:var(--surface,#fff);color:var(--text,#172033);box-shadow:0 12px 42px #0004}
+.sgl548-layout-menu h4{margin:0 0 10px}.sgl548-layout-options{display:grid;grid-template-columns:1fr 1fr;gap:6px}.sgl548-layout-options button{border:1px solid var(--border);border-radius:8px;padding:9px 5px;background:var(--surface-soft);color:var(--text);font-size:12px}.sgl548-layout-options button[aria-pressed="true"]{outline:2px solid var(--accent)}
+.sgl5039-page-body:has([data-sgl-layout]){isolation:isolate}
+.sgl5039-page-body:has([data-sgl-layout="square"],[data-sgl-layout="tight"],[data-sgl-layout="through"])>:is(p,div){clear:none!important}
+.sgl548-watermark{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:0;overflow:hidden}
+.sgl548-watermark img{max-width:90%;max-height:90%;object-fit:contain}
+@media(max-width:820px){.sgl5039-word-editor figure[data-sgl-photo-id]>.sgl543-photo-turns:not([hidden]){display:flex!important;position:absolute;left:4px;right:4px;bottom:5px;justify-content:space-between;z-index:50}.sgl543-photo-turns button{min-width:40px;min-height:40px;background:white;color:#172033;border:1px solid #64748b;border-radius:8px}}
+
+/* 5.48 R1: one rotation handle, no duplicated quarter-turn controls. */
+.sgl543-photo-turns,.sgl534-turn{display:none!important}
+.sgl548-rotation{display:none!important;position:absolute;left:50%;top:-34px;transform:translateX(-50%);width:30px;height:30px;border:1px solid #2c6ca2;border-radius:50%;background:#fff;color:#1d5887;touch-action:none;cursor:grab;z-index:80}
+#req_text figure:is(.sgl5045-photo-selected,.sgl539-selected)>.sgl548-rotation{display:block!important}
+.sgl548-rotation:after{content:'';position:absolute;top:29px;left:14px;width:1px;height:5px;background:#2c6ca2}
+.sgl548-layout-options svg{width:32px;height:32px;display:block;margin:auto auto 4px}
+.sgl548-layout-options{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sgl548-anchor-options{display:grid;gap:8px;margin-top:12px;font-size:12px}
+.sgl548-layout-menu{max-height:calc(100dvh - 16px);overflow:auto}
+[data-layout548][hidden]{display:none!important}
+@media print{.sgl548-rotation{display:none!important}}
+
+@media(min-width:821px){.sgl532-desktop .sgl5093-mobile-toolbar{display:none!important}.sgl532-desktop .sgl537-page-actions>button{min-width:32px}.sgl532-desktop .sgl5037-paper-toolbar{flex-wrap:nowrap!important}}
+
+#modal_root #req_text .sgl5039-word-page:has(>.sgl548-watermark) .sgl5039-page-body{background:transparent!important}
+#modal_root #req_text figure[data-sgl-photo-id]:has(>.sgl548-rotation){overflow:visible!important}
+#modal_root #req_text figure:is(.sgl5045-photo-selected,.sgl539-selected)>.sgl548-rotation{display:block!important;visibility:visible!important;opacity:1!important}
+
+.sgl548-rotation:after{top:100%;left:50%;transform:translateX(-50%)}
+
+/* 5.48 R2: clipboard symbols and the two requested picture modes. */
+.sgl539-clipboard button{display:grid;place-items:center;min-width:36px;min-height:36px;padding:7px}
+.sgl539-clipboard svg{display:block;width:20px;height:20px;pointer-events:none}
+.sgl539-clipboard button:focus-visible{outline:3px solid #2563eb;outline-offset:2px}
+.sgl548-layout-menu .sgl548-layout-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sgl548-wrap-exclusion{visibility:hidden;pointer-events:none;user-select:none}
+.sgl5039-page-body:has(>figure[data-sgl-layout="through"])>:is(p,div,ul,ol){clear:none!important}
+.sgl5039-page-body>.sgl548-wrap-exclusion{clear:none!important}
+html[data-sgl545-mode="dark"] .sgl532-controls{background:#1d2940!important;color:#edf3fc!important}
+html[data-sgl545-mode="dark"] .sgl532-controls :is(button,select){background:#17283d!important;color:#edf3fc!important;border-color:#49617e!important}

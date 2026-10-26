@@ -1,0 +1,244 @@
+# Ministerio de la Música
+
+Manual de uso de la versión 6.2.6. Ajustes del 22 de octubre de 2026.
+
+El sistema organiza las cuentas, los requisitos y su revisión, los ministerios, los eventos y los certificados. Cada persona ingresa con una cuenta previamente registrada. Los datos se guardan en el servidor; se necesita conexión para trabajar. No hay opción de trabajo offline. Si la conexión se interrumpe, la aplicación bloquea las nuevas acciones y permite reintentar la conexión. Un envío iniciado conserva su estado pendiente hasta recibir confirmación del servidor.
+
+## Instalación y actualización
+
+En Windows de 64 bits, ejecute INSTALAR_MinisterioMusica.exe. El instalador conserva la carpeta data y la configuración al actualizar en la misma ubicación. De forma predeterminada usa %LOCALAPPDATA%\MinisterioMusicaOnline. Colocar el instalador dentro de otra carpeta no modifica el destino; si su instalación está en otra ruta, ejecútelo con --dest "RUTA_DE_SU_INSTALACION". Detenga antes el servidor con DETENER_MUSICA.cmd. Conserve una copia completa de la instalación y un respaldo de los datos antes de actualizar.
+
+En una instalación nueva abierta directamente en el propio servidor (127.0.0.1 o localhost), complete sus datos para crear la primera cuenta administradora. No necesita copiar la clave. Si inicia la configuración desde otro equipo, use la clave de CLAVE_INSTALACION.txt de la carpeta del servidor. También puede importar un respaldo completo desde importar.html. El paquete no incluye datos ni contraseñas de producción.
+
+Para Linux amd64, compile el servidor con python3 tools/compilar.py --platform linux desde codigo_fuente y use ServidorMusica con el archivo server-config.json. La carpeta app contiene la interfaz. Para trabajar desde Internet se necesita un dominio, HTTPS y almacenamiento permanente. Los ejemplos de despliegue están en despliegue.
+
+Abra el acceso directo de Música para iniciar el servidor y la aplicación. Cerrar la ventana no detiene el servidor. El icono del escritorio utiliza el logo original con transparencia. El instalador actualiza el acceso directo con una referencia nueva al icono para evitar que Windows reutilice una versión anterior en caché.
+
+## Desinstalar y reinstalar
+
+En Windows, abra Configuración > Aplicaciones > Aplicaciones instaladas, busque Ministerio de la Música Online y elija Desinstalar. También existe Desinstalar Ministerio de la Musica en Inicio y DESINSTALAR_MinisterioMusica.exe en la carpeta instalada. Confirme el cierre del servidor y la retirada del programa. Se conservan los datos, certificados, respaldos, fuentes personalizadas, perfil del navegador y configuración. Los archivos propios del usuario y los archivos modificados se conservan. Reinstalar en la misma carpeta permite volver a usar esos datos.
+
+La instalación habitual no necesita permisos de administrador. Si activó la tarea opcional de arranque como SYSTEM, ejecute el desinstalador como administrador para retirarla. Si el servidor no puede detenerse, la desinstalación se interrumpe antes de retirar los archivos.
+
+## Restaurar una copia anterior
+
+Abra Importar datos de Música y elija el JSON o .cabackup extraído del respaldo. Se envía el archivo directamente al servidor, sin abrirlo ni duplicarlo en la memoria de la página. Se admiten archivos de hasta 240 MB. Ver qué se importará muestra el resumen antes de aplicar cambios. Para restaurar, escriba IMPORTAR MUSICA y confirme. Se conserva la comprobación de adjuntos y Administrador, y se crea una copia de seguridad antes de sustituir datos existentes.
+
+## Apariencia y menú
+
+El tema predeterminado en un navegador sin preferencia guardada es Día. Puede elegir Azul o Noche desde Mis preferencias. Se respeta la elección guardada. En la vista de Administrador y de Coordinador SGM, Configuración ocupa la última posición del menú. El rótulo repetido de cargo y título se retira de la barra superior. En la esquina inferior derecha de la ventana aparece únicamente Misión Boliviana Occidental Sur en letra pequeña y posición fija, incluso al desplazarse; no se muestran el nombre ni el teléfono del desarrollador.
+
+## Acceso a la cuenta
+
+Puede ingresar con su usuario o con su correo registrado y la contraseña del sistema. Puede usar Gmail u otro proveedor de correo. No se crean cuentas nuevas desde el formulario de ingreso.
+
+Continuar con Google permite usar una cuenta Gmail o una organización de Google verificada cuyo correo ya esté registrado y habilitado. Conserva la misma cuenta, los datos y los permisos. Requiere que el responsable del servidor configure las credenciales de Google. Si todavía no están configuradas, use usuario o correo y contraseña.
+
+Olvidé mi contraseña envía un enlace al correo registrado cuando el servidor de correo está configurado. El enlace dura 30 minutos y se utiliza una sola vez. Al guardar una nueva contraseña se cierran las sesiones anteriores. Si la recuperación por correo no está disponible, el responsable autorizado puede entregar una contraseña temporal como antes.
+
+El archivo CONFIGURACION_ACCESO.md explica la configuración del servidor para Google y correo. Las credenciales privadas no deben subirse a GitHub.
+
+## Menú del aspirante
+
+Solo el menú de la vista de aspirante se reorganiza. Los menús de gestión conservan su orden y sus opciones. El menú personal presenta Inicio, Mi Tarjeta Líder, Devoción Personal, Eventos/Inscripciones, Informes Revisados, Mi Avance/tareas, Certificados, Mi investidura, Acompañamiento, Mi Perfil y Configuración. Cuando la cuenta tiene funciones de gestión y formación personal, Volver a Gestión permite regresar a sus funciones.
+
+Mi Avance/tareas reúne el avance revisado en la parte superior y las tareas debajo, conservando su planificación y seguimiento. En Inicio, debajo del saludo aparece la fila Inicio con Ver cumpleaños. Tareas, Eventos/Inscripciones, Mis certificados y Mi investidura se reúnen en una fila de accesos. El avance personal y Ministerios de Música se muestran juntos, con el avance a la izquierda. En pantallas pequeñas se acomodan en varias filas. Desde Inicio, Ver ministerios abre el registro de Ministerios de Música. Historial de gestiones se reserva a la vista de gestión.
+
+## Permisos y funciones
+
+El Administrador y el Coordinador SGM acceden a todas las funciones de gestión de Música. Coordinador SGM es un cargo distinto con las mismas facultades de administración. En Configuración, abra Permisos y funciones para activar o desactivar funciones por rol o por usuario. Una excepción del usuario prevalece sobre la configuración del rol. No se permite aprobar requisitos propios.
+
+Todos los usuarios habilitados pueden consultar los eventos creados y el registro de ministerios. La consulta se mantiene disponible aunque se desactiven acciones de edición. Los permisos para registrar, vincular, desvincular, editar y eliminar ministerios aparecen en su propio grupo.
+
+El Administrativo puede registrar ministerios y vincular o desvincular aspirantes por defecto. El Administrador puede retirar esos permisos. Después de registrar, el Administrativo debe contactar al equipo de gestión para corregir o eliminar datos. Admin, Departamental, Secretaría y Coordinación General de Música administran los registros según sus permisos.
+
+Se retiró Atrás de los menús y de los encabezados de ventanas. Use el menú lateral para navegar y Cerrar para salir de una ventana. Se retira únicamente el botón Volver al módulo de los encabezados de Requisitos, Tareas, Materiales, Informes/evidencias y Registro de lectura de 365 días. Los módulos, sus funciones y sus datos siguen disponibles. Volver a Gestión se conserva para las cuentas con funciones de gestión y formación personal. Solo existen los temas Día, Azul y Noche. Azul sigue la distribución clara de Día, con fondo blanco, menú lateral muy claro, degradados y sombras azules suaves. Sus encabezados conservan el acento azul y Cerrar sesión mantiene un contraste legible.
+
+## Ministerios de Música
+
+Abra Ministerios de Música para consultar el registro. Las tarjetas se ordenan alfabéticamente y se muestran en tres columnas en escritorio, dos en tablet y una en móvil. El buscador encuentra coincidencias con el nombre, el registro o la iglesia. La lista muestra 60 tarjetas por lote; Mostrar más carga las siguientes.
+
+Crear ministerio registra los datos institucionales, la fotografía, la fecha de creación, el voto de Junta y los datos del director. Trayectoria indica los años completos y los meses adicionales, de 0 a 11. La reseña permite contar brevemente la historia del ministerio.
+
+Editar modifica únicamente los datos del ministerio. No aparece un selector de aspirante. Ver datos e historial muestra los integrantes vinculados y los cambios registrados. La eliminación retira el ministerio del registro vigente y conserva su historial.
+
+Exportar PDF descarga los ministerios que coinciden con la búsqueda. Plantilla Word descarga un formulario editable para recopilar los datos antes de registrarlos en el sistema.
+
+## Vincular y desvincular aspirantes
+
+Vincular aspirante abre una lista con buscador. Un ministerio puede tener varios aspirantes vinculados; cada aspirante tiene un ministerio vigente a la vez. Para trasladarlo a otro ministerio, desvincúlelo primero del anterior.
+
+Al vincular se genera el certificado PDF del ministerio y el requisito LM-PRE-5 queda en desarrollo, listo para enviarlo a revisión. El vínculo no envía ni aprueba el requisito automáticamente. Mientras esté vinculado, la carga manual de PDF o fotografías de ese requisito queda deshabilitada.
+
+Si el aspirante había subido un PDF o una fotografía, esa evidencia se conserva junto con el vínculo anterior. Al desvincular, el certificado deja de estar vigente, se conserva en el historial y se vuelve a habilitar la carga manual. Si había evidencia anterior, se recupera como borrador para una nueva revisión.
+
+En una actualización, los registros antiguos se conservan. Los requisitos antiguos que ya estaban aprobados o en revisión mantienen su evidencia; el nuevo certificado del ministerio también queda disponible. Una vinculación confirmada de nuevo prepara el certificado oficial para una nueva revisión.
+
+Ver certificado abre el PDF y permite descargarlo o imprimirlo. El aspirante encuentra su certificado vigente junto con los demás certificados de su cuenta.
+
+## Eventos e inscripciones
+
+Todos los usuarios habilitados pueden consultar todos los eventos creados. La autoría del evento y el hecho de estar inscrito no limitan la consulta.
+
+Las personas autorizadas pueden crear eventos desde Configuración o desde Eventos. Complete el nombre, la fecha, el horario, el lugar y la descripción. Certificado asociado muestra los nombres de las plantillas disponibles, incluidas las nuevas plantillas creadas por el equipo de gestión.
+
+Ver lista está disponible desde Regional en adelante. Regional consulta la lista y la asistencia; las personas con permisos de gestión pueden inscribir participantes y marcar Participó. El logo de esta lista es pequeño. También se conservan los participantes externos. Dentro de Ver lista, Exportar PDF y Exportar CSV descargan todos los inscritos, incluidos los externos, con su estado de asistencia Sí o No. El CSV puede abrirse en una hoja de cálculo.
+
+Inscribir a alguien no genera un certificado. Cuando se marca PARTICIPÓ en un evento que tiene plantilla asociada, se genera el certificado y aparece en su cuenta, aunque el campo opcional de horas esté en cero. Los eventos con un tipo de certificado asociado de versiones anteriores conservan esa asociación. Si se retira la asistencia o la inscripción, el certificado deja de estar vigente y conserva su registro.
+
+## Plantillas, logos y fuentes
+
+Plantillas de certificados permite editar las plantillas existentes o crear una nueva con nombre propio. Las plantillas pueden tener un fondo horizontal, textos y hasta diez logos o imágenes PNG/JPG, de hasta 2 MB por imagen.
+
+El área para acomodar los textos ocupa la columna ancha del editor para todos los certificados. Nombre de la plantilla es un panel desplegable; al cerrarlo deja más espacio para trabajar. Los controles del texto o imagen seleccionado quedan al lado del certificado.
+
+Documento permite elegir A4 (29,7 × 21 cm), Carta (28 × 21,6 cm) u Oficio (33 × 21,6 cm), en horizontal. La medida se guarda con cada plantilla y se aplica al PDF. Carta es la medida predeterminada; los formatos elegidos expresamente se conservan. Tamaño, ancho y color se reúnen en una fila; Negrita, Cursiva y Subrayado en otra.
+
+Las cajas Documento, Fondo y Elementos reúnen las herramientas. Los iconos de flecha deshacen y rehacen. Vista previa PDF muestra los cambios con datos de ejemplo sin guardar la plantilla ni emitir un certificado; Editar plantilla permite continuar. Junto a Imprimir, la X cierra solo la previsualización y vuelve al editor. Cada tarjeta de plantilla también ofrece Vista previa PDF. La ayuda y las variables se despliegan cuando se necesitan.
+
+Añadir imagen agrega un logo independiente. Para eliminarla, selecciónela en la hoja y pulse Suprimir. Puede arrastrarla, ajustar su posición horizontal y vertical y cambiar su ancho y alto. Un PNG con transparencia conserva esa transparencia en el PDF.
+
+Los textos permiten Negrita, Cursiva y Subrayado, tamaño, color y alineación. Seleccione un fragmento dentro del cuadro de texto para aplicar tamaño o estilo solo a esa parte. Ctrl+C y Ctrl+V permiten copiar y pegar. Interlineado aparece junto a Alineación y permite ajustar la distancia entre líneas. Puede usar las variables nombre, titulo, datos, fecha, lugar e investidura, escritas entre llaves. La cuadrícula y los bordes de los objetos solo sirven para editar y no se imprimen. La variable {fecha} muestra el día, mes y año en español. Escriba El Alto, {fecha} para obtener, por ejemplo, El Alto, 26 de octubre de 2026.
+
+Deshacer y Rehacer revierten textos, estilos, posiciones, logos, fondos y nombres. También funcionan Ctrl+Z y Ctrl+Y; en Mac puede usar Cmd+Z y Cmd+Mayús+Z. Arrastrar un objeto cuenta como una operación. Las flechas ajustan su posición; Mayús con una flecha permite moverlo más. Quitar fondo elimina solo la imagen de fondo; conserva los textos y logos. Puede recuperar el fondo con Deshacer.
+
+El certificado del ministerio incluye el número de Voto de Junta del registro. La variable {voto_junta} permite ubicarlo dentro de una plantilla personalizada. Si esa plantilla omite los datos y el voto, se imprime una línea adicional con el número.
+
+Las firmas se trabajan como cuadros de texto normales. Al actualizar, los nombres, cargos, posiciones y estilos anteriores se convierten en texto editable y se conservan. No hay apartados especiales de firmas ni una cantidad obligatoria. Seleccione un cuadro para editarlo, duplicarlo o eliminarlo con Suprimir. Guardar y aplicar plantilla actualiza todos los certificados vinculados, incluidos los que ya visualizó un aspirante, y conserva sus códigos de verificación y fechas. Las gestiones cerradas mantienen sus archivos de consulta.
+
+El instalador incluye DejaVu Sans, DejaVu Serif, DejaVu Sans Mono, Exmouth, Gabriola, Great Vibes, Gill Sans MT, a Big Deal y Georgia. Georgia incluye regular, negrita, cursiva y negrita cursiva; Gill Sans MT incluye regular y negrita. Aparecen primero en Fuente y se sirven desde la propia aplicación: no requieren descargas externas ni que esas fuentes estén instaladas en Windows. Las plantillas configuradas del respaldo se incorporan como valores iniciales para instalaciones nuevas; las actualizaciones conservan las personalizaciones existentes.
+
+El editor detecta automáticamente las fuentes TTF/OTF estáticas compatibles del equipo donde se ejecuta el servidor, incluidas las carpetas de fuentes de Windows y del usuario de Windows. No hay fila de importación ni buscador. Al abrir Fuente, un navegador compatible puede pedir permiso para añadir las fuentes de ese equipo cliente. Esa autorización no puede omitirse desde el instalador. Se admiten fuentes estáticas de hasta 4 MB por archivo, 12 variantes y 18 MB por plantilla. Las colecciones TTC, las fuentes variables y las que no permiten incorporarse al PDF no se ofrecen como fuentes del servidor. Solo se guardan e incorporan las variantes utilizadas; el respaldo completo las conserva para otro equipo o servidor.
+
+El selector Plantilla situado arriba permite abrir cualquiera de las plantillas creadas sin salir del editor. Cada una guarda su propia configuración. Guardar y aplicar plantilla mantiene el editor abierto. Si intenta cerrar o cambiar de plantilla con cambios pendientes, elija Guardar y continuar, Descartar cambios o Seguir editando.
+
+Cada texto, imagen o fondo tiene un control independiente de Opacidad, de 0 a 100 %. El resultado se conserva al guardar y se imprime igual en el PDF. Seleccione Fondo para ajustar su opacidad. Suprimir elimina el elemento seleccionado; Deshacer permite recuperarlo. Dentro de un cuadro de texto, Suprimir funciona como borrado de texto normal.
+
+El código de verificación se presenta con el rótulo arriba y el código debajo, en dos filas. Se pueden mover juntos con el ratón o las flechas. El código es automático, no se puede editar ni eliminar. En el editor se muestra un código de ejemplo.
+
+Las descargas de certificados incluyen el nombre del aspirante y el nombre del certificado. Las muestras usan Muestra seguido del nombre de la plantilla. Los marcadores reconocidos, como {nombre}, {titulo}, {fecha} o {voto_junta}, se completan automáticamente al generar el PDF; en la muestra se emplean datos ficticios. Se reconocen también mayúsculas en esos nombres, como {Nombre}.
+
+## QR y cambio de servidor
+
+El QR tiene siempre fondo blanco. Al seleccionar el QR aparece Ocultar QR o Mostrar QR. Cuando está oculto, una guía tenue permite seleccionarlo en el editor; esa guía y el QR no se imprimen. La opción se guarda por plantilla, para todas las clases de certificado, y participa en Deshacer/Rehacer. Los certificados vinculados se actualizan al guardar cambios en su plantilla y conservan su código de verificación.
+
+Administración y Secretaría pueden definir la Dirección pública para los QR desde Configuración. Escriba el dominio completo con HTTPS, sin rutas, por ejemplo https://musica.su-organizacion.org. Se aplica a las próximas emisiones y actualiza los PDF actuales conservando sus códigos. Se conserva al iniciar una nueva gestión. Si deja el campo vacío, se usa MUSICA_PUBLIC_URL del servidor. Cada certificado nuevo genera su propio QR con un código de verificación.
+
+Configure la dirección antes de emitir certificados y compruebe el acceso al dominio desde otro dispositivo. Al trasladar la aplicación conserve el respaldo completo y sus archivos. Si mantiene el mismo dominio, los QR impresos seguirán apuntando a él. Si cambia de dominio, mantenga una redirección del dominio anterior al nuevo, preservando la ruta y el código del certificado. Un cambio de dominio actualiza las copias actuales que se descarguen del sistema; el papel ya impreso necesita la redirección del dominio anterior. Las gestiones cerradas conservan su versión archivada. La configuración de Google y recuperación por correo se realiza por separado en CONFIGURACION_ACCESO.md.
+
+## Fotografías y documentos enviados
+
+Las nuevas fotos de informes se reducen automáticamente hasta 100.000 bytes y un máximo de 1600 píxeles en su lado mayor. Las fotografías del ministerio se reducen hasta 220 KB y 1440 píxeles; las del perfil también se preparan automáticamente. Puede seleccionar imágenes de hasta 20 MB. Se procesan una por una para reducir el uso de memoria.
+
+Las fotografías de documentos tienen un tratamiento de mayor calidad y pueden conservar hasta 2600 píxeles en su lado mayor para mantener el texto legible. Se prepara un único PDF de hasta cinco páginas. Revise la vista previa antes de enviarlo. Si una fotografía o PDF nuevo es inválido, se conserva el documento anterior en preparación.
+
+Los fondos y logos de certificados conservan sus archivos y dimensiones originales; no se someten a la reducción de fotos de informes. Los textos del certificado siguen siendo vectoriales y los PNG conservan su transparencia. Los cambios guardados en la plantilla actualizan también los certificados emitidos y mantienen su código y fecha.
+
+Guardar avance y enviar a revisión son pasos diferentes. El mensaje Informe y archivos recibidos por el servidor para revisión confirma que llegaron el contenido y sus archivos. Mientras falte esa confirmación, el envío permanece pendiente y puede reintentarse al recuperar la conexión. El reintento no crea otra entrega del mismo requisito.
+
+## Requisitos y certificado de Líder de Música
+
+El aspirante desarrolla los requisitos y los envía a revisión. Las personas responsables revisan el contenido o solicitan correcciones. Enviar un documento no equivale a tenerlo aprobado.
+
+Cuando todos los requisitos están aprobados al 100% y el Departamental confirma la aprobación final, se genera el certificado de Líder de Música con los datos del aspirante. La fecha del certificado es la fecha de esa aprobación y se conserva al descargar o reimprimir. La recomendación, la aprobación final del expediente y la programación de investidura conservan su flujo propio.
+
+Mi investidura está visible para todos los aspirantes. Muestra el avance revisado y el estado de su expediente. La tarjeta se vuelve dorada únicamente cuando tiene el 100% de requisitos revisados y la aprobación final del Departamental. Llegar al 100% sin esa aprobación muestra el expediente pendiente y no habilita todavía la programación.
+
+Si un requisito vuelve a corrección, el certificado final deja de estar vigente hasta completar de nuevo todos los requisitos aprobados. Los documentos anteriores se conservan en el historial.
+
+## Recordatorios y seguimiento de revisión
+
+El plazo se cuenta desde el envío a revisión. A partir de 3 días completos, el responsable de aspirantes con función de revisar recibe una alerta al ingresar. Dura 15 segundos y desaparece; puede cerrarla antes. Se repite en cada ingreso mientras existan pendientes de esos aspirantes y también queda en la campanita de Avisos. No se muestra como tarjeta permanente ni se envía el aviso personal a responsables sin aspirantes asignados pendientes. Admin, Departamental, Secretaría y Coordinación General no ven el aviso emergente ni el icono de alerta, aunque tengan pendientes propios; conservan el seguimiento interno y los avisos en la campanita. Los demás responsables con requisitos pendientes de tres días o más disponen de un icono de alerta junto a Avisos, que abre Revisiones.
+
+El texto indica que, si los requisitos permanecen pendientes al cumplirse 5 días desde su envío, se notificará al equipo de gestión para dar seguimiento al proceso. No se suman otros cinco días al primer recordatorio.
+
+El seguimiento interno llega a Secretaría, Administrativos, Coordinación General, Departamental y Admin. No se enumeran esos destinatarios en el aviso del revisor. Los recordatorios se identifican por envío para evitar avisos repetidos del mismo requisito y etapa. Al revisar o devolver el requisito deja de aparecer como pendiente de revisión.
+
+## Iniciar una nueva gestión
+
+Admin y Secretaría pueden iniciar una nueva gestión desde Configuración. La gestión anterior queda en Historial de gestiones, disponible solo para consulta.
+
+Antes de confirmar, seleccione si conservará las cuentas y contraseñas, los permisos, el catálogo y la configuración de requisitos, las plantillas y el registro de ministerios. Seleccione aparte los aspirantes que deben continuar su formación. Los documentos de estos expedientes se copian como borradores y deben revisarse de nuevo; las aprobaciones anteriores quedan en el historial.
+
+Los vínculos de ministerios y la asistencia a eventos no se heredan como requisitos aprobados de la nueva gestión. Los archivos históricos se conservan mediante referencias compartidas para evitar duplicar cada PDF o fotografía. Las plantillas históricas comparten sus versiones de imagen.
+
+Escriba el texto de confirmación con el año elegido. Al terminar, todos deben ingresar de nuevo para cargar la gestión vigente. El historial se consulta desde la vista de gestión según el alcance permitido. No aparece en el menú personal de los aspirantes.
+
+## Respaldo y reinicio desde cero
+
+Admin y Secretaría pueden crear un respaldo completo desde Configuración. Incluye usuarios, contraseñas, avances, archivos y gestiones archivadas. Guarde una copia en otro lugar con acceso restringido.
+
+Reiniciar desde cero exige crear antes un respaldo completo y verificado. El servidor guarda ese respaldo fuera de los datos activos. Si no puede guardarlo, si cambia o si los datos avanzan después de crearlo, el reinicio se bloquea y pide un respaldo actualizado.
+
+Escriba REINICIAR DESDE CERO para confirmar. Se vacían las cuentas, los certificados emitidos, sus PDF y el historial activo del sistema. Se conservan las plantillas actuales, sus fondos, logos, colores, tamaños, fuentes y posiciones, incluso después de crear la nueva cuenta administradora. El respaldo obligatorio se conserva para poder recuperar los datos. No es lo mismo que iniciar una nueva gestión.
+
+La aplicación entrega una nueva clave de instalación. Guárdela para crear al nuevo Administrador o use el respaldo completo en importar.html para restaurar la información. Las sesiones anteriores quedan invalidadas.
+
+## Funciones retiradas
+
+Las opciones Marca de agua y Fondo de interfaz fueron retiradas. Sus configuraciones antiguas dejan de aplicarse. Los fondos de las plantillas de certificados siguen disponibles en el editor de certificados.
+
+## Barra superior y preferencias personales
+
+La barra superior muestra ONEVOICE27 a la izquierda, junto a los controles de Mensajes, Avisos y conexión. El logo completo y su lema se presentan un 30 % más pequeños que en la versión vigente, manteniendo sus proporciones. En los temas Día y Azul se usa el archivo original con el lema MISIÓN PARA TODOS en gris; Noche usa el archivo original con el lema blanco. Los colores de ONEVOICE27 se conservan y no se añade otro tema. Su entrada tiene una animación breve, sin repetición, que se desactiva con Reducir animaciones o con la preferencia de movimiento reducido del sistema. El icono de torta permite consultar los cumpleaños desde cualquier pantalla, según los permisos de consulta. Ver cumpleaños también aparece en la fila Inicio debajo del saludo.
+
+El menú lateral muestra Sistema de Gestión de Música en dos líneas, la versión actual abreviada y Ministerio Joven MBOS debajo de la marca. Este último texto es dos píxeles más grande que en la versión vigente y queda más cerca de la versión. La versión visible se actualiza junto con cada entrega.
+
+Todos los roles disponen de Mis preferencias en Configuración: Día, Azul o Noche; tamaño normal o grande del texto de la interfaz; letra de sus informes; y reducción de animaciones cuando no esté impuesta por Permisos y funciones. La apariencia y accesibilidad se conservan en ese navegador para la cuenta. La letra de informes se guarda en el servidor. El tamaño de la interfaz no modifica los PDF ni el editor de certificados. También hay accesos a Mi Perfil y seguridad, Mis avisos, cumpleaños y el manual. El cambio o recuperación de contraseña conserva el flujo de la cuenta registrada.
+
+El Administrativo dispone además de accesos a sus aspirantes y a Ministerios y vínculos. Crear eventos y registrar o vincular ministerios respetan los permisos de su función. Iniciar una gestión, reiniciar desde cero y configurar los permisos continúan reservados a los cargos autorizados.
+
+## Eliminación manual de certificados de aspirantes
+
+Si se elimina un evento, sus certificados no se borran automáticamente. En Certificados del aspirante, los cargos Administrador, Departamental, Secretaría, Coordinación General de Música y Administrativo pueden usar Eliminar certificado sobre los expedientes que pueden consultar. La confirmación muestra el aspirante, el certificado y el evento.
+
+Al confirmar, se elimina de la vista y del historial de certificados del aspirante; su código deja de permitir la consulta. Los certificados de eventos todavía existentes y las plantillas no se eliminan mediante esta acción. Se conserva únicamente un registro interno de la operación. Los documentos utilizados como evidencia de un requisito o de una gestión cerrada se preservan en su expediente. El Administrador puede configurar este permiso en Permisos y funciones.
+
+## Gestión inicial y menú compacto
+
+Las fechas de certificados y eventos que los generan corresponden a 2026 o años posteriores. El formulario y el servidor rechazan años anteriores. Los certificados anteriores quedan como historial no vigente, sin modificar sus fechas automáticamente.
+
+Las filas del menú lateral son más bajas, todas tienen borde y los nombres se ajustan en una sola línea. El contador de notificaciones conserva su espacio propio.
+
+
+## Editor de certificados
+
+Plantillas de certificados presenta una fila compacta por plantilla, con su nombre y los botones Vista previa PDF y Editar plantilla. Los nombres y cargos permanecen dentro del certificado, sin ocupar espacio en la lista.
+
+Se retiran las opciones especiales de firmas. Los nombres y cargos existentes se conservan como cuadros de texto editables. Se pueden mover, duplicar y eliminar como cualquier otro texto. Las plantillas nuevas permiten crear los cuadros necesarios, sin insertar firmas obligatorias.
+
+Seleccione un cuadro en la hoja y pulse el icono Duplicar cuadro de texto o Ctrl+D. La copia conserva contenido, fuente, tamaño, formato por fragmentos, color, alineación, opacidad e interlineado. Se coloca ligeramente desplazada y puede moverse. Editar la copia conserva el original. Ctrl+C y Ctrl+V permiten copiar y pegar cuadros completos dentro del editor, incluso entre plantillas abiertas en la misma sesión. Dentro de un campo de texto, copiar y pegar sigue funcionando normalmente.
+
+En Color aparece primero HEX. Puede pegar el código que copia de Photoshop, con o sin #; admite mayúsculas y minúsculas. Por ejemplo, E5A322 se convierte en #E5A322. El selector situado debajo permite elegir visualmente el color. Moverlo actualiza solo el texto seleccionado, conservando la vista de la hoja. Un código inválido se señala antes de guardar.
+
+Se retiran los botones Eliminar texto y Eliminar imagen. Seleccione el cuadro o la imagen en la hoja y pulse Suprimir; Deshacer permite recuperarlo. Dentro del campo de texto, Suprimir borra caracteres. La eliminación del fondo y la protección del código de verificación conservan sus funciones.
+
+Guardar y aplicar plantilla actualiza a todos los certificados vinculados con el mismo código de verificación. Puede seguir editando y guardar otra vez sin salir. La copia y eliminación de cuadros participan en Deshacer y Rehacer.
+
+
+Para escribir directamente sobre la hoja, haga doble clic en un cuadro de texto. Enter y Shift+Enter permiten bajar de línea; Ctrl+Enter o Escape terminan la edición y conservan lo escrito. También puede hacer clic fuera. El panel lateral sigue disponible. Deshacer y Rehacer incluyen esta edición. El código de verificación sigue protegido y no permite editar su contenido.
+
+Mantenga Ctrl o Shift y haga clic en los textos o las imágenes que desea seleccionar. El mismo gesto quita un elemento de la selección. Puede arrastrar el conjunto o usar las flechas para moverlo conservando sus distancias. Shift+flecha mueve a pasos mayores. Un clic en otro elemento reemplaza la selección; un clic en un espacio vacío de la hoja permite seleccionar el fondo.
+
+Ctrl+C y Ctrl+V copian y pegan imágenes, textos o una selección mixta; Ctrl+D duplica la selección. La imagen conserva el archivo original, tamaño, giro y opacidad, sin perder calidad. El icono Duplicar imagen aparece al seleccionarla. También puede copiar entre plantillas abiertas en la misma sesión. Suprimir elimina la selección completa; Deshacer recupera todos sus elementos. El límite sigue siendo de 60 textos y 10 imágenes por plantilla.
+
+Vista previa PDF reutiliza la última muestra cuando la plantilla no ha cambiado. Si modifica texto, imágenes, tamaños u otra opción, se genera una muestra nueva. El servidor reutiliza la preparación de fondos y logos sin reducir su resolución ni transparencia. Las fuentes incluidas se utilizan directamente, sin volver a enviarlas al servidor. La vista previa no emite certificados ni guarda los cambios; use Guardar y aplicar plantilla para aplicarlos a los certificados vinculados.
+
+
+## Certificados y Papelera en 6.2.4
+
+En la tarjeta del ministerio, Certificado abre su PDF. Dentro encontrará Historial y Renovar. Historial permite consultar los certificados anteriores y los cambios registrados. Datos, Vincular, Editar y Papelera son acciones cortas en la tarjeta.
+
+Papelera muestra los ministerios retirados. Restaurar recupera el registro con su número original. Eliminar definitivamente exige escribir ELIMINAR DEFINITIVAMENTE. Se elimina el registro activo y sus certificados; su número no vuelve a utilizarse. Las gestiones cerradas y las evidencias entregadas mantienen sus propias copias.
+
+## Plantillas y fuentes portátiles
+
+La instalación nueva incluye las diez configuraciones de certificados del respaldo, con todos sus cuadros de texto y su formato. No incluye fondos, sellos, logos ni certificados emitidos. Cada familia y variante necesaria está incorporada en el servidor y en el PDF, por lo que no depende de las fuentes del equipo. Los textos configurados con Arial Narrow conservan esa variante y no se convierten a Arial normal.
+
+La lista carga sólo los nombres de las plantillas. Al editar se solicita únicamente la plantilla elegida. Guardar y aplicar mantiene el funcionamiento del editor y actualiza los certificados vinculados. La consulta de la lista no emite certificados ni cambia datos.
+
+Al reiniciar desde cero se conservan las configuraciones de certificados y las fuentes vigentes. En una actualización se respetan los diseños ya configurados por la instalación.
+
+## Autoría y uso
+
+Desarrollado por José Antonio Mendoza Aguirre · +59172575053. Uso autorizado sólo para el entorno de la Misión Boliviana Occidental Sur.

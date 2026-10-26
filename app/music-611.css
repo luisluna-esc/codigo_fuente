@@ -1,0 +1,12 @@
+.music611-review-alert{position:fixed;right:22px;top:82px;z-index:12000;width:min(420px,calc(100vw - 32px));box-shadow:0 8px 32px #10283a30;border-left:4px solid #b58e48;padding:22px;box-sizing:border-box}
+.music611-review-alert h2{font-size:18px;padding-right:22px;margin-top:0}.music611-review-alert p{font-size:14px}.music611-review-alert small{display:block;margin-top:12px;font-size:12px}
+.music611-alert-close{position:absolute;right:10px;top:8px;border:0;background:transparent;color:inherit;font-size:24px;cursor:pointer}
+.music611-progress progress{width:100%;display:block;margin-top:12px}.music611-progress strong{font-size:28px}
+html body .music592-editor{width:min(1500px,98vw)!important;max-width:1500px!important;max-height:96dvh;display:flex;flex-direction:column}
+html body .music592-editor .modal-body{display:grid;grid-template-columns:minmax(0,1fr) 230px;align-items:start;overflow:auto;min-height:0;gap:14px}
+html body .music592-editor #music592_stage{grid-column:1;width:100%;min-width:0}
+html body .music592-editor #music592_controls{grid-column:2;min-width:0;position:sticky;top:0}
+html body .music592-editor :is(.music592-tools,.music611-template-options,.music611-editor-help,#music592_error){grid-column:1/-1}
+.music611-template-options{padding:12px;border:1px solid #c7d1dc;border-radius:8px}.music611-template-options summary{cursor:pointer;font-weight:600}.music611-template-options .music610-form-grid{grid-template-columns:repeat(3,minmax(0,1fr));padding-top:12px}
+.music611-roster-exports{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+@media(max-width:800px){html body .music592-editor .modal-body{display:flex;flex-direction:column}html body .music592-editor #music592_controls{position:static;width:100%}.music611-template-options .music610-form-grid{grid-template-columns:1fr}.music611-review-alert{right:16px;top:64px}}

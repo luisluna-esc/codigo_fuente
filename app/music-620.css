@@ -1,0 +1,14 @@
+.music620-template-list{display:grid;gap:7px}
+html body #content .music620-template-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0;padding:9px 14px!important;min-height:52px;border-radius:12px}
+.music620-template-row h2{font-size:15px!important;line-height:1.25;margin:0!important;overflow-wrap:anywhere}
+.music620-template-row .actions{display:flex;flex-wrap:nowrap;gap:7px;flex-shrink:0}
+.music620-template-row .btn{font-size:12px;min-height:30px;padding:5px 10px;margin:0}
+html body #content .music620-template-header{min-height:0;padding:12px 18px!important;margin-bottom:12px!important}
+.music620-text-heading{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.music620-text-heading .music617-icon{height:30px;width:32px;min-height:30px;padding:5px}
+.music620-color input[type=text]{width:100%;min-width:0;box-sizing:border-box;font-family:ui-monospace,monospace!important;font-size:12px!important}
+.music620-color input[type=color]{width:100%;height:25px;min-height:25px;padding:2px!important;cursor:pointer}
+.music620-color input[aria-invalid=true]{outline:2px solid #bd3545;outline-offset:1px}
+@media(max-width:650px){html body #content .music620-template-row{flex-wrap:wrap;gap:7px}.music620-template-row h2{flex:1 1 100%}.music620-template-row .actions{flex-wrap:wrap}.music620-template-row .btn{min-height:34px}}
+
+.music592-editor #music592_stage [data-kind].selected{z-index:6}

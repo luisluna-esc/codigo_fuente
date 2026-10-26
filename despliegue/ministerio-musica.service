@@ -1,0 +1,21 @@
+[Unit]
+Description=Ministerio de la Musica Online
+After=network.target
+
+[Service]
+Type=simple
+User=musica
+Group=musica
+WorkingDirectory=/opt/ministerio-musica
+ExecStart=/opt/ministerio-musica/ServidorMusica --config /opt/ministerio-musica/server-config.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=180
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/ministerio-musica
+
+[Install]
+WantedBy=multi-user.target

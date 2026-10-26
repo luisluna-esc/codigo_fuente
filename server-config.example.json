@@ -1,0 +1,11 @@
+{
+  "bindAddress": "127.0.0.1",
+  "port": 8796,
+  "adminToken": "SE_GENERA_AL_PRIMER_INICIO_NO_COPIAR_ESTE_EJEMPLO",
+  "clientToken": "SE_GENERA_AL_PRIMER_INICIO_NO_COPIAR_ESTE_EJEMPLO",
+  "dataFile": "data/musica-server-data.json",
+  "serverName": "Ministerio de la Música",
+  "webRoot": "app",
+  "publicWeb": true,
+  "allowedOrigins": []
+}

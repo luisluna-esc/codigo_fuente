@@ -1,0 +1,33 @@
+# Datos y credenciales de la instalación
+/data/
+/respaldos/
+/server-config.json
+/acceso-servidor.json
+/CLAVE_INSTALACION.txt
+*.log
+*.lock
+*.tmp
+.env
+.env.*
+!.env.example
+# Cachés de herramientas
+__pycache__/
+*.pyc
+
+# Ejecutables y paquete generados con tools/compilar.py
+/ServidorMusica
+/ServidorMusica.exe
+/Musica.exe
+/INSTALAR_MinisterioMusica.exe
+/DESINSTALAR_MinisterioMusica.exe
+/src/cmd/installer/payload.zip
+
+# Interfaz generada con tools/preparar_web.py
+/app/music-runtime.js
+/app/music-runtime.css
+/app/*.gz
+
+# Respaldos con datos personales: nunca al repositorio
+*.rar
+*.cabackup
+*respaldo*.json

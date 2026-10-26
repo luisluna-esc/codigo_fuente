@@ -1,0 +1,14 @@
+{
+  "app": "Ministerio de la Música Online",
+  "version": "6.2.6-musica-online",
+  "base": "6.2.5-musica-online",
+  "date": "2026-10-22",
+  "dataIncluded": false,
+  "certificateLayoutsIncluded": true,
+  "certificateArtworkIncluded": false,
+  "developer": "José Antonio Mendoza Aguirre",
+  "contact": "+59172575053",
+  "authorizedUse": "Sólo para el entorno de la Misión Boliviana Occidental Sur",
+  "uninstallerIncluded": true,
+  "defaultAppearance": "light"
+}

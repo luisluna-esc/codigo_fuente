@@ -1,0 +1,37 @@
+/* Shared certificate editor and compact event list. */
+.music618-template-picker{display:flex;flex-direction:column;gap:3px;min-width:150px;max-width:430px;font-size:11px;color:var(--muted)}
+.music618-template-picker select{width:100%;max-width:100%;padding:7px 10px;font-size:15px;font-weight:600;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text)}
+.music618-background-select{padding:0;border:0;background:none;color:inherit;font:inherit;text-transform:inherit;letter-spacing:inherit;cursor:pointer;text-align:left}
+#music592_stage{isolation:isolate;background:#fff!important;position:relative}
+.music618-background{position:absolute;inset:0;background-size:100% 100%;background-repeat:no-repeat;pointer-events:none;z-index:-1}
+html body .music592-editor .music613-field{white-space:pre-wrap;overflow-wrap:anywhere;padding:0!important;min-height:0;border-top:1px dashed transparent!important}
+html body .music592-editor .music613-field.selected{border-color:#4b7dc4!important}
+html body .music592-editor .music613-signature{border-top:none!important}
+html body .music592-editor .music592-qr{background:#fff!important;color:#000!important}
+.music618-align-spacing{display:grid;grid-template-columns:1.2fr 1fr;gap:8px}
+.music618-opacity{display:grid!important;grid-template-columns:1fr auto;gap:6px}
+.music618-opacity input{grid-column:1/-1;width:100%;accent-color:var(--accent,#3766bd)}
+.music618-opacity output{font-variant-numeric:tabular-nums;color:var(--muted)}
+.music618-unsaved{position:absolute;inset:0;z-index:100;display:grid;place-items:center;padding:24px;background:#10233a88;border-radius:inherit}
+.music618-unsaved section{max-width:520px;border-radius:15px;padding:24px;background:var(--surface,#fff);color:var(--text,#17334f);box-shadow:0 20px 70px #0005}
+html body .music618-events{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:start}
+html body .music618-events .music618-event{padding:13px 15px!important;margin:0!important;min-width:0}
+.music618-events h2{font-size:16px!important;line-height:1.25;margin:0 0 5px!important}
+.music618-events p{font-size:12px;line-height:1.4;margin:4px 0!important}
+.music618-events .music610-prose{max-height:5.6em;overflow:auto}
+.music618-events .music610-event-head{gap:10px;flex-wrap:wrap}
+.music618-events .actions{gap:5px;margin-top:4px}
+.music618-events .btn{font-size:11px;padding:6px 9px;min-height:30px}
+.music618-events .chip{font-size:10px;margin-top:7px;white-space:normal}
+@media(max-width:1000px){html body .music618-events{grid-template-columns:1fr}}
+@media(max-width:520px){.music618-template-picker{max-width:100%;width:100%}.music618-unsaved{padding:12px}.music618-unsaved section{padding:17px}}
+/* Shorter menu rows keep every label and its badge in a single line. */
+html body .sidebar #nav{gap:5px!important}
+html body .sidebar #nav button[data-page]{min-height:36px!important;height:auto!important;padding:7px 9px!important;gap:7px!important;grid-template-columns:18px minmax(0,1fr);border:1px solid color-mix(in srgb,var(--border,#bdcceb) 65%,transparent)!important;border-radius:11px!important}
+html body .sidebar #nav button[data-page]:has(>.count){grid-template-columns:18px minmax(0,1fr) auto}
+html body .sidebar #nav button[data-page]>span{font-size:13px!important;line-height:1.15!important;white-space:nowrap!important;overflow:hidden!important;overflow-wrap:normal!important;text-overflow:clip;min-width:0}
+html body .sidebar #nav button[data-page]>.count{min-height:19px;min-width:19px;padding:1px 4px;font-size:10px}
+html.music615-large-text body .sidebar #nav button[data-page]>span{font-size:14px!important}
+html body .sidebar #nav button[data-page]{height:36px!important;line-height:1.15!important}
+html body .sidebar #nav button[data-page]>b{display:grid;place-items:center;width:18px;height:18px;font-size:14px;line-height:1}
+html body .sidebar #nav button[data-page]>b svg{width:18px;height:18px}

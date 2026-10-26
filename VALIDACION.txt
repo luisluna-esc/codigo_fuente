@@ -1,0 +1,154 @@
+VALIDACIÓN · MINISTERIO DE LA MÚSICA ONLINE 6.2.6
+Fecha de revisión: 22 de octubre de 2026
+
+ALCANCE Y RESULTADO
+Se revisaron el ZIP 6.2.3, su código fuente, la captura de ministerios,
+el respaldo RAR completo y las fuentes proporcionadas. El RAR se extrajo
+con verificación correcta; el JSON completo es válido. Se tomaron sólo las
+configuraciones actuales de los diez certificados y sus fuentes.
+
+PRUEBAS AUTOMÁTICAS
+- 579 pruebas y subpruebas Go aprobadas, 0 fallidas; 17 omitidas.
+- Las omitidas son fixtures opcionales de navegador/respaldo privado, rutas
+  antiguas retiradas y la medición optativa; no se presentan como aprobadas.
+- 55 archivos JavaScript, incluido el paquete generado, con sintaxis válida.
+- Proyección de cuentas: se omiten borradores de formación de personas no
+  matriculadas y se conservan los avances y las nuevas matrículas válidas.
+- Coordinador SGM: equivalencia con Admin en todos los permisos de Música,
+  mantenimiento, gestión de plantillas y creación de ministerios.
+- Papelera: denegación a aspirantes, confirmación obligatoria, imposibilidad
+  de purgar registros activos, conservación de evidencia archivada y secuencia
+  de registro sin reutilizar números.
+- Índices: lectura sin modificar registros, archivos ni versión del servidor;
+  catálogo de plantillas sin fondos y detalle completo sólo cuando se pide.
+- Configuración inicial local: la clave no se revela a accesos remotos,
+  solicitudes con cabeceras de proxy ni otros orígenes.
+- Instalador: conserva datos/configuración, bloquea rutas inválidas y elimina
+  únicamente archivos obsoletos conocidos; conserva notas propias del usuario.
+
+PRUEBA EN NAVEGADOR REAL
+Chromium, escritorio 1440 × 1000 y móvil 390 × 844. Diecisiete recorridos
+comprobados sin errores JavaScript ni respuestas HTTP fallidas:
+1. Primera instalación sin copiar manualmente la clave local.
+2. Inicio de sesión, menú y diez plantillas.
+3. Editor con las fuentes incorporadas.
+4. Seis ministerios en filas de tres tarjetas compactas, de unos 208 px de alto.
+5. Búsqueda por nombre.
+6. Búsqueda por registro.
+7. PDF e historial dentro del certificado.
+8. Mover a Papelera y eliminar definitivamente.
+9. Vista móvil sin desbordamiento horizontal.
+10. Coordinador SGM disponible en la creación de cuentas.
+11. Crear esa cuenta, autenticarla y comprobar sus facultades de administración.
+12. Tema Día como predeterminado y elección Noche conservada al recargar.
+13. Configuración al final del menú de Admin y Coordinador SGM.
+14. Pie institucional pequeño, alineado a la derecha, sin nombre ni teléfono.
+15. Rótulo de rol y título repetidos ocultos en la barra superior; título
+    principal de Tutores de Música visible en la página.
+16. Un único pie institucional fuera del contenido, fijo en la esquina
+    inferior derecha de la ventana de escritorio al desplazarse.
+17. Misma posición fija del pie en la ventana móvil.
+La prueba también se ejecutó sobre los recursos extraídos del paquete del
+instalador, para comprobar que no falten dependencias de la interfaz.
+
+AJUSTES DE LA VERSIÓN 6.2.6
+- Se retira el rótulo repetido de rol y título de la barra superior.
+- Pie institucional único como elemento directo de la ventana, con posición
+  fija en la esquina inferior derecha. No cambia al navegar ni al desplazarse.
+- Comprobado en Tutores de Música, Plantillas y Ministerios, en escritorio
+  y móvil, junto a los recorridos de la versión anterior.
+
+NOVEDADES Y PRUEBAS DE LA VERSIÓN 6.2.5
+- Desinstalador instalado y registrado en Windows por usuario, sin elevación
+  para la instalación habitual. También se crea un acceso en Inicio.
+- Cierre del servidor con su token local antes de retirar archivos, sin matar
+  procesos ni seguir redirecciones. Si el cierre falla se conservan el programa
+  y los datos para poder reintentar.
+- Se retiran sólo los archivos registrados por el instalador cuya huella no
+  cambió. No se siguen enlaces a otras carpetas. Los datos, configuración,
+  respaldos, perfiles y archivos personalizados quedan conservados.
+- Prueba de instalación, desinstalación y reinstalación con registros de prueba,
+  verificando la conservación exacta de los datos y la configuración.
+- Retirada de accesos y del registro de Windows sólo cuando apuntan a esa
+  instalación. La tarea opcional de inicio como SYSTEM requiere administrador.
+- Importación mediante archivo nativo del navegador: no se usa File.text,
+  FileReader, JSON.parse ni JSON.stringify sobre el respaldo completo.
+- Autorización, vista previa sin modificaciones, confirmación obligatoria,
+  copia de seguridad previa, Unicode, límite de tamaño, campos duplicados y
+  carga truncada comprobados. El formato JSON de clientes anteriores sigue
+  siendo compatible.
+- Prueba adicional de navegador con el respaldo real de 109.799.020 bytes
+  (104,7 MiB), importado sólo en un servidor aislado de prueba. Se bloquearon
+  File.text y FileReader y se limitó el heap JavaScript a 96 MB. Vista previa
+  correcta en 2,04 s, restauración en 3,62 s, sin errores ni cierre de la página;
+  heap JavaScript observado de unos 2,65 MB tras la vista previa. Son medidas
+  de este equipo local, no del equipo Windows destinatario ni de la memoria
+  total del navegador o servidor.
+- Se comprobó la vuelta al ingreso tras restaurar y el cierre de las sesiones.
+- Tema Día en navegadores sin preferencia y respeto de la elección guardada.
+- Nombre y teléfono del desarrollador retirados de los recursos de la interfaz,
+  incluido el manual que se abre dentro de la aplicación. Quedan en la
+  documentación externa y metadatos. El pie muestra únicamente la Misión.
+
+VELOCIDAD: COMPARACIÓN LOCAL CONTROLADA
+Misma configuración de plantillas del respaldo, mismo equipo y Go 1.22.
+Por recurso: tres solicitudes de calentamiento y diez medidas mediante
+HTTP de prueba en memoria. Los valores son procesamiento del servidor y
+tamaño JSON sin compresión, sin incluir red, disco del navegador ni Internet.
+
+Recurso             Antes: mediana/p95     Ahora: mediana/p95    JSON antes -> ahora
+Lista de plantillas  517,749 / 543,035 ms    0,053 / 0,074 ms      24.169.810 -> 3.473 bytes
+Lista certificados   193,946 / 228,164 ms    0,004 / 0,005 ms      52 -> 52 bytes
+Seguimiento          0,011 / 0,019 ms        0,010 / 0,012 ms      129 -> 129 bytes
+
+La lista de plantillas transfiere un 99,986 % menos de JSON en esta prueba.
+La mejora procede de retirar la copia de la base completa y la preparación
+de certificados de las consultas; no es una promesa de latencia por Internet.
+La consulta de certificados evita trabajo aunque la lista esté vacía.
+Para el arranque, 47 scripts de aplicación y dos previos se reúnen en un
+paquete JavaScript, y las hojas de estilo en un paquete CSS. Ambos tienen
+gzip preparado y caché por versión. Se mantiene el orden de dependencias.
+El índice de fuentes no recorre las fuentes del sistema al abrir el editor.
+Las fuentes usadas por varios cuadros comparten su carga y su caché local.
+Las listas extensas pintan 60 tarjetas por lote y permiten Mostrar más.
+
+CERTIFICADOS PORTÁTILES
+- Diez configuraciones actuales del respaldo, sin fondos, sellos ni logos.
+- Se conservan cuadros de texto, saltos, coordenadas, tamaño, ancho, color,
+  negrita/cursiva, interlineado, opacidad, papel y ajustes del QR.
+- 27 archivos únicos de fuentes, de 14 familias, dentro del servidor.
+- De los archivos nuevos se incorporan Arial normal, negrita, cursiva y
+  negrita cursiva; no se agregan las copias idénticas.
+- Arial Narrow conserva los archivos exactos asociados en el respaldo.
+- El programa no necesita que esas fuentes estén instaladas en el equipo
+  y no las solicita a Google Fonts ni a otros servicios de Internet.
+- Se comprobó con Poppler y pypdf un PDF real de registro: una página Carta
+  de 280 × 216 mm, todos sus programas de fuentes incrustados, texto legible,
+  QR y firmas en texto en sus posiciones, sin fondo ni sellos. Se revisó
+  visualmente el PDF renderizado y el editor en el navegador.
+- Reiniciar desde cero conserva las configuraciones y las fuentes vigentes.
+- Actualizar no sustituye los diseños ya personalizados por los de fábrica.
+
+INSTALACIÓN Y LÍMITES DE LA VALIDACIÓN
+Se compilaron servidor, iniciador, desinstalador e instalador para Windows amd64 y se
+aplicaron los iconos. Se comprobó la extracción del paquete real con el
+instalador nativo de prueba, preservando datos y configuración preexistentes.
+El servidor y los recorridos de navegador se ejecutaron en Linux. No se
+ejecutó el .exe en Windows; la creación de accesos directos, el arranque, las entradas de Aplicaciones
+instaladas y los diálogos del desinstalador requieren la comprobación final
+en ese sistema.
+No se midieron conexiones reales de múltiples usuarios ni el hardware o la
+conectividad del servidor destinatario. La publicación en Internet sigue
+requiriendo configurar dominio, HTTPS y dirección pública para los QR.
+
+LIMPIEZA
+CAMBIOS_Y_REVISION.md reúne las notas de versiones anteriores y esta entrega.
+Se retiraron los PDF de manual antiguos duplicados; el manual vigente se abre
+desde la aplicación y permite imprimir o guardar como PDF. El código fuente
+conserva las dependencias necesarias para reconstruir; la instalación lleva
+sólo los paquetes web activos y sus recursos, sin sus módulos duplicados.
+No se distribuyen el respaldo completo, cuentas, contraseñas, datos de
+prueba, certificados emitidos, capturas del navegador ni herramientas de prueba.
+
+Desarrollado por José Antonio Mendoza Aguirre · +59172575053.
+Uso autorizado sólo para el entorno de la Misión Boliviana Occidental Sur.

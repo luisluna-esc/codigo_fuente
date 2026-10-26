@@ -1,0 +1,30 @@
+/* Compact content rows; preserve the existing day, blue and night palettes. */
+html[data-music592="true"] #content .sgm597-journey{gap:7px}
+html[data-music592="true"] #content .sgm597-journey-row{min-height:52px;padding:8px 12px!important;gap:12px;margin:0;border-radius:12px}
+html[data-music592="true"] .sgm597-journey-row strong{font-size:13px;line-height:1.2}
+html[data-music592="true"] .sgm597-journey-row small{font-size:11px;line-height:1.2;margin-top:2px}
+html[data-music592="true"] .sgm597-journey-row .btn{padding:5px 10px;min-height:30px;margin:0}
+html[data-music592="true"] .sgm597-journey-row progress{height:8px}
+.music619-history{margin-top:12px}
+.music619-history>summary{cursor:pointer;padding:8px;font-weight:600}
+.music619-certificates .sgl563-certificate-row{margin:0;padding:8px 12px;min-height:56px;border-radius:12px}
+.music619-certificates{display:grid;gap:7px}
+.music619-certificates .sgl551-certificate-actions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.music619-certificates .sgl551-certificate-actions .btn{padding:5px 9px;min-height:30px;margin:0}
+.music619-certificates small{white-space:normal;overflow-wrap:anywhere}
+.music619-image{position:absolute;box-sizing:border-box;touch-action:none;cursor:move;outline:1px solid transparent;transform-origin:center}
+.music619-image>img{display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
+.music619-image.selected{outline:2px solid #316fe8;z-index:3}
+.music619-handle{position:absolute;display:none;width:12px;height:12px;min-height:0!important;padding:0!important;background:white!important;border:2px solid #2463ce!important;border-radius:3px;box-shadow:0 1px 4px #0004;color:#123f86!important;z-index:5;touch-action:none}
+.selected>.music619-handle{display:block}
+.music619-nw{left:-6px;top:-6px;cursor:nwse-resize}.music619-ne{right:-6px;top:-6px;cursor:nesw-resize}
+.music619-sw{left:-6px;bottom:-6px;cursor:nesw-resize}.music619-se{right:-6px;bottom:-6px;cursor:nwse-resize}
+.music619-rotate{top:-31px;left:calc(50% - 10px);width:22px;height:22px;border-radius:50%;font-size:18px;line-height:16px;cursor:grab}
+.music619-rotate:after{content:'';position:absolute;left:8px;top:19px;width:1px;height:9px;background:#2463ce}
+.music619-image:focus-visible,.music619-handle:focus-visible{outline:3px solid #e09d12;outline-offset:3px}
+.music619-signature-line{display:block;white-space:pre!important;overflow-wrap:normal!important;transform-origin:left top}
+.music619-review-message p{white-space:normal;overflow:visible;overflow-wrap:anywhere;line-height:1.55}
+.music611-template-options textarea{min-height:65px;white-space:pre;overflow:auto}
+@media(max-width:720px){html[data-music592="true"] #content .sgm597-journey-row{grid-template-columns:18px minmax(0,1fr) 42px;gap:5px 9px}.music619-certificates .sgl551-certificate-actions{justify-content:flex-start}.music619-certificates .sgl563-certificate-row{grid-template-columns:24px minmax(0,1fr);gap:6px}.music619-certificates .sgl551-certificate-actions{grid-column:2}.music619-certificates .chip{grid-column:2}}
+
+#music619_save_status{flex:1;min-width:160px;max-width:100%;font-size:12px;line-height:1.35;overflow-wrap:anywhere}#music619_save_status.error{color:#b42332}

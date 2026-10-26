@@ -1,0 +1,54 @@
+'use strict';
+(()=>{
+ const style=document.createElement('style');style.textContent='[hidden]{display:none!important}#sgl429_update_card,.factory-reset-zone{display:none!important}';document.head.append(style);
+ const P='music_ministry',LOCAL=!REMOTE_WEB,personal=u=>['aspirant','pastor_aspirant'].includes(u?.role);
+ const managers=['coordinador_sgm','admin','departamental','secretaria','administrativo','coordinador_musica','administrativo_sgm'];
+ let checking=null,lastCheck=null,newAccountIds=null;
+ const isTutor=u=>!!u&&SGLMusicPolicy560.active(u)&&(u.role==='tutor'&&sgl548TutorPrograms(u).includes(P)||v3ModuleRecord(P)?.assignedUserIds?.includes(u.id)||[...managers,'regional'].includes(u.role)&&window.SGL555?.managementPrograms(u).includes(P));
+ const isMember=u=>v3ModuleRecord(P)?.assignedUserIds?.includes(u.id);
+ const isMusicUser=u=>isMember(u)||isTutor(u)||managers.includes(u?.role)||u?.id===currentUser()?.id;
+ const baseAccess=accessibleAspirants;
+ accessibleAspirants=function(actor=currentUser()){return baseAccess(actor).filter(isMember);};window.accessibleAspirants=accessibleAspirants;
+ const baseNav=navItems;
+ navItems=function(actor){
+  const items=baseNav(actor).filter(x=>!['music_module','module_music_ministry','modules_admin','clubs','music_registration'].includes(x[0]));
+  const extra=[['music_readings','▤','Lectura bíblica'],['music_events','▦','Eventos / Inscripciones'],['music_certificates','▤','Certificados'],['music_investitures','♧',personal(actor)?'Mi Investidura':'Cronograma de Investiduras']];
+  if(SGLMusicPolicy560.cap(actor,'registry'))extra.push(['music_ministries','♫','Ministerios de Música']);
+  const index=items.findIndex(x=>x[0]==='dashboard');items.splice(index<0?0:index+1,0,...extra);return items;
+ };window.navItems=navItems;
+ const baseRenderNav=renderNav;
+ renderNav=function(...args){const result=baseRenderNav(...args);const page=currentPage==='music_registration'?'music_ministries':currentPage==='music_module'?({home:'dashboard',readings:'music_readings',events:'music_events',certificates:'music_certificates',investitures:'music_investitures'}[SGL550.getSection()]||'dashboard'):currentPage;document.querySelectorAll('#nav button').forEach(el=>el.classList.toggle('active',el.getAttribute('onclick')===`go('${page}')`));return result;};window.renderNav=renderNav;
+ clubFor=function(user){return {name:user?.church||'Iglesia Adventista del Séptimo Día',logo:DEFAULT_REPORT_LOGO};};window.clubFor=clubFor;
+ const baseGo=go;
+ go=function(page,...args){
+  const section={music_readings:'readings',music_events:'events',music_certificates:'certificates',music_investitures:'investitures'}[page];
+  if(section)return SGL550.open(section);
+  if(page==='music_ministries')return baseGo('music_registration',...args);
+  if(page==='music_module')return SGL550.open('home');
+  if(['clubs','modules_admin','module_music_ministry'].includes(page))return baseGo('dashboard',...args);
+  return baseGo(page,...args);
+ };window.go=go;
+ const baseContent=setContent;
+ setContent=function(html,...args){
+  const result=baseContent(String(html).replace(/Incluye todos los usuarios, clubes y expedientes\./g,'Respaldo de las cuentas y expedientes disponibles en Música.').replace(/predeterminada del Club/g,'predeterminada de Música').replace(/<th>Club<\/th>/g,'<th>Iglesia</th>').replace(/Registrar ministerio/gi,'Ministerios de Música').replace(/Registro del Sistema de Gestión de Música/g,'Ministerios de Música').replace(/Sin Club/g,'Iglesia Adventista del Séptimo Día'),...args);
+  const root=document.getElementById('content');if(!root)return result;
+  root.querySelectorAll('.sgl551-music-tabs,.sgl550-module-strip').forEach(el=>el.remove());
+  root.querySelectorAll('[onclick*="sgl426OpenImport"],[onclick*="importUsers"],input[accept*=".csv"]').forEach(el=>(el.closest('label')||el).remove());
+  root.querySelectorAll('button,a').forEach(el=>{if(/Importar (Excel|CSV)/i.test(el.textContent))el.remove();});
+  root.querySelectorAll('[onclick^="deleteUserPermanent("]').forEach(el=>{const id=el.getAttribute('onclick').match(/\('([^']+)'\)/)?.[1];if(id){el.textContent='Eliminar usuario';}});
+  root.querySelectorAll('.settings-restore').forEach(el=>el.remove());
+  return result;
+ };window.setContent=setContent;
+ const baseUsers=renderUsers;
+ renderUsers=function(...args){const all=database.users;database.users=all.filter(isMusicUser);try{return baseUsers(...args);}finally{database.users=all;}};window.renderUsers=renderUsers;
+ renderTutors=function(){const actor=currentUser();if(!['admin','regional'].includes(actor?.role))return go('dashboard');setTop('Tutores de Música',ROLE_LABELS[actor.role]);const tutors=database.users.filter(isTutor);setContent(`<div class="page-head"><div><h1 class="page-title">Tutores de Música</h1><p class="subtitle">Solo tutores habilitados para Música.</p></div>${actor.role==='admin'?'<button class="btn primary" onclick="openTutor()">Crear Tutor de Música</button>':''}</div><div class="sgl5060-tutor-list">${tutors.map(u=>`<article class="card sgl5060-tutor-row"><strong>${esc(u.fullName)}</strong><button class="btn ghost small" onclick="sgl5060ShowTutorAspirants('${esc(u.id)}')">Ver Aspirantes asignados</button></article>`).join('')||'<article class="card">Todavía no hay tutores de Música.</article>'}</div>`);};window.renderTutors=renderTutors;
+ v3LocalRemoteApi=async function(){return {ok:true,active:false,source:'SGL central'};};window.v3LocalRemoteApi=v3LocalRemoteApi;
+ v3RefreshRemoteAccess=async function(){return null;};window.v3RefreshRemoteAccess=v3RefreshRemoteAccess;
+ const baseOpen=openUser;
+ openUser=function(id=''){if(id&&!isMusicUser(userById(id)))return toast('Esta cuenta no pertenece a Música.');const result=baseOpen(id);for(const key of ['user_club','user_club_position','user_clubPosition'])document.getElementById(key)?.closest('label')?.setAttribute('hidden','');for(const field of document.querySelectorAll('#user_tutor,[data-sgl545-program]'))for(const option of [...field.options])if(option.value&&!isTutor(userById(option.value)))option.remove();for(const option of [...(document.getElementById('user_role')?.options||[])])if(![...managers,'aspirant','pastor_aspirant','tutor','regional'].includes(option.value))option.remove();if(!id)document.querySelectorAll('[name="sgl548_tutor_program"][value="music_ministry"]').forEach(el=>el.checked=true);return result;};window.openUser=openUser;
+ const baseSave=saveUser;
+ saveUser=async function(event,id=''){newAccountIds=!id?new Set(database.users.map(u=>u.id)):null;try{return await baseSave(event,id);}finally{newAccountIds=null;}};window.saveUser=saveUser;
+ const basePersist=persist;
+ persist=async function(...args){if(newAccountIds){const module=v3ModuleRecord(P);for(const user of database.users){if(newAccountIds.has(user.id))continue;if(personal(user)&&!module.assignedUserIds.includes(user.id)){module.assignedUserIds.push(user.id);v3EnsureProgramProgress(user.id,P);}if(user.role==='tutor')user.tutorProgramIds=[P];}}return basePersist(...args);};window.persist=persist;
+ Object.assign(MusicaApp,{isMusicUser,isTutor,isMember});
+})();

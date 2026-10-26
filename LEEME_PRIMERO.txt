@@ -1,0 +1,70 @@
+MINISTERIO DE LA MÚSICA ONLINE 6.2.6
+
+INSTALACIÓN NUEVA EN WINDOWS 64 BITS
+1. Extraiga este ZIP.
+2. Ejecute INSTALAR_MinisterioMusica.exe.
+3. Se abrirá Música. Complete sus datos para crear el Administrador.
+4. Ingrese. Las plantillas y sus fuentes ya están incorporadas.
+
+No necesita instalar Go, Python ni las fuentes en el equipo destinatario.
+Requiere Chrome o Microsoft Edge para mostrar la aplicación. Las fuentes se
+sirven desde su servidor; no se descargan de Google Fonts ni de otros sitios.
+
+CERTIFICADOS INCLUIDOS
+Se incluyen diez configuraciones del respaldo: textos, ubicación, tamaños,
+colores, estilos, firmas en texto y ajustes del QR. No se incluyen fondos,
+sellos, logos de las plantillas, personas ni certificados emitidos.
+Agregue los fondos y sellos desde Plantillas cuando corresponda.
+
+ACTUALIZACIÓN
+Cree un respaldo completo desde Configuración, detenga Música con
+DETENER_MUSICA.cmd y ejecute el instalador en la misma carpeta existente.
+Destino habitual: %LOCALAPPDATA%\MinisterioMusicaOnline. Si usaba otra
+carpeta, ejecute INSTALAR_MinisterioMusica.exe -dest "RUTA_EXISTENTE".
+La actualización conserva sus datos y las plantillas que ya haya configurado.
+Las configuraciones del instalador sólo se usan cuando no existe una plantilla.
+
+DESINSTALAR
+En Configuración de Windows > Aplicaciones > Aplicaciones instaladas, busque
+Ministerio de la Música Online y elija Desinstalar. También puede abrir
+Desinstalar Ministerio de la Musica desde Inicio, o ejecutar
+DESINSTALAR_MinisterioMusica.exe en la carpeta instalada.
+Se detiene el servidor y se retira el programa. Sus registros, certificados,
+respaldos, fuentes personalizadas y configuración se conservan. Para volver
+a usarlos, reinstale en la misma carpeta. No borre manualmente esa carpeta.
+Si activó el arranque automático como SYSTEM, ejecute el desinstalador como
+administrador para que pueda retirar esa tarea.
+
+RESTAURAR UN RESPALDO ANTERIOR
+Abra Importar datos de Música y seleccione el JSON o .cabackup extraído.
+El archivo se envía directamente al servidor, sin cargarlo entero en la
+memoria de la página. Límite: 240 MB. Pulse Ver qué se importará y revise el
+resumen antes de confirmar. No seleccione el ZIP o RAR que contiene la copia.
+
+INTERFAZ
+El rótulo de cargo y título repetido ya no aparece en la barra superior.
+Misión Boliviana Occidental Sur aparece en letra pequeña, fija en la esquina
+inferior derecha de la ventana, incluso al desplazarse.
+
+PARA USARLO
+El tema predeterminado es Día. Azul y Noche siguen disponibles.
+En la vista de administración, Configuración está al final del menú.
+Abra el acceso directo Ministerio de la Música. En Ministerios, Certificado
+reúne PDF, Historial y Renovar. Papelera permite restaurar o eliminar
+definitivamente. En Cuentas de acceso puede elegir el cargo Coordinador SGM.
+
+OTRO SERVIDOR O ACCESO POR INTERNET
+El instalador es para Windows de 64 bits. Para Linux, consulte codigo_fuente/
+COMPILAR.md. La instalación local funciona en http://127.0.0.1:8796.
+Para usuarios remotos, configure el dominio y HTTPS según los ejemplos de
+despliegue. En acceso remoto inicial se pide CLAVE_INSTALACION.txt.
+En Configuración establezca la dirección pública que usarán los QR.
+
+DOCUMENTACIÓN
+Consulte Ayuda/Manual en la aplicación o abra codigo_fuente/app/manual.html.
+Puede imprimirlo o guardarlo como PDF con el navegador.
+En el ZIP, codigo_fuente/CAMBIOS_Y_REVISION.md reúne el historial.
+VALIDACION.txt explica
+las pruebas, medidas de velocidad y límites de validación.
+
+Desarrollado por José Antonio Mendoza Aguirre · +59172575053. Uso autorizado sólo para el entorno de la Misión Boliviana Occidental Sur.

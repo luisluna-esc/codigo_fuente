@@ -1,0 +1,15 @@
+/* ONEVOICE and its tagline retain their original artwork at 70% of the 6.1.5 size. */
+#music615_onevoice{
+  width:clamp(154px,22.4vw,294px)!important;
+  max-height:30.8px!important;
+}
+@media(max-width:1150px){
+  #music615_onevoice{width:clamp(147px,18.9vw,231px)!important}
+}
+@media(max-width:760px){
+  #music615_onevoice{width:168px!important}
+}
+
+/* The MBOS caption is 2 px larger and follows the version closely. */
+html body .sidebar .side-brand:has(+.music615-brand-caption){padding-bottom:3px!important}
+html body .sidebar .music615-brand-caption{font-size:13px;margin-top:2px}

@@ -1,0 +1,57 @@
+/* Compact tools shared by every certificate editor. */
+html body .music592-editor .modal-head{gap:12px;align-items:center}
+html body .music592-editor .modal-close{background:var(--surface2,#eaf0f8)!important;color:var(--text,#20344d)!important;border:1px solid var(--border,#cbd5e1)}
+.music617-head-actions,.music617-tool-actions,.music617-preview-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.music617-head-actions{margin-left:auto;flex-wrap:nowrap}
+.music617-icon{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;flex:0 0 36px;padding:7px;border:1px solid var(--border,#cbd5e1);border-radius:9px;background:var(--surface,#fff);color:var(--text,#243653);cursor:pointer}
+.music617-icon:disabled{opacity:.4;cursor:default}
+.music617-icon svg,.music617-tool-actions svg,.music617-preview-button svg,.music617-delete-image svg,.music617-qr-toggle svg{width:19px;height:19px;flex:0 0 19px}
+.music617-icon:focus-visible{outline:2px solid var(--accent,#3766bd);outline-offset:2px}
+.music617-preview-button,.music617-delete-image,.music617-qr-toggle,.music617-tool-actions .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+html body .music592-editor .music617-toolbar{display:grid;grid-template-columns:minmax(310px,1.2fr) minmax(175px,.8fr) minmax(230px,1fr);gap:10px;margin:0}
+.music617-toolbox{min-width:0;padding:10px 12px;border:1px solid var(--border,#d3ddec);border-radius:12px;background:color-mix(in srgb,var(--surface,#fff) 96%,var(--accent,#4072ce) 4%)}
+.music617-toolbox>strong{display:block;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted,#526581);margin-bottom:6px}
+.music617-document-options{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:8px}
+.music617-document-options label{display:flex;flex-direction:column;min-width:0;gap:3px;font-size:11px}
+.music617-document-options select{width:100%;min-width:0;padding:7px 5px;border:1px solid var(--border,#c3cede);border-radius:7px;font:inherit;font-size:12px}
+.music617-tool-actions{min-height:53px}
+.music617-tool-actions .btn{padding:8px 10px;font-size:12px;min-height:36px}
+html body .music592-editor .modal-body{grid-template-columns:minmax(0,1fr) 280px}
+html body .music592-editor #music592_controls{padding:14px;border:1px solid var(--border,#d4ddea);border-radius:12px;background:var(--surface,#fff);gap:11px;box-sizing:border-box}
+html body .music592-editor #music592_controls :is(label,input,textarea,select){min-width:0;box-sizing:border-box;max-width:100%}
+html body .music592-editor #music592_controls :is(input[type=number],input[type=color],select){width:100%}
+html body .music592-editor #music592_controls label{font-size:12px;gap:4px}
+html body .music592-editor #music592_controls textarea{min-height:78px;resize:vertical;font-size:13px}
+html body .music592-editor .music617-text-metrics{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+html body .music592-editor .music617-text-metrics input{height:35px;padding:6px}
+html body .music592-editor .music617-text-metrics input[type=color]{padding:3px;cursor:pointer}
+html body .music592-editor .music613-checks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
+html body .music592-editor .music613-checks label{display:flex;flex-direction:row;gap:3px;align-items:center;font-size:11px;white-space:nowrap}
+.music613-checks input{margin:0;accent-color:var(--accent,#3766bd)}
+.music617-delete-image{width:100%;font-size:12px;padding:8px}
+.music617-delete-image:disabled{opacity:.42;cursor:default}
+.music617-image-settings{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.music617-editor-info{grid-column:1/-1;display:flex;align-items:start;justify-content:space-between;gap:12px;font-size:11px}
+html body .music592-editor .music617-editor-info .music611-editor-help{margin:0;font-size:11px;max-width:650px}
+.music611-editor-help summary{cursor:pointer;color:var(--muted,#526581)}
+.music611-editor-help p{line-height:1.5;margin:7px 0}
+html body .music592-editor .music613-font-status{font-size:11px;color:var(--muted,#526581);text-align:right}
+.music617-preview{display:none;grid-column:1/-1;min-width:0}
+.music617-preview-actions{margin-bottom:10px;font-size:12px}
+.music617-preview iframe{display:block;width:100%;height:66vh;border:1px solid var(--border,#cbd5e1);border-radius:10px;background:#e9edf2}
+.music592-editor.music617-show-preview .music617-preview{display:block}
+html body .music592-editor.music617-show-preview :is(#music592_stage,#music592_controls,.music611-template-options,.music617-editor-info){display:none}
+.music592-qr svg{display:block;width:100%;height:100%;padding:3px;box-sizing:border-box}
+.music592-qr small{position:absolute;left:0;right:0;bottom:0;background:white;font:9px Arial;line-height:1.1}
+.music592-qr.music617-qr-hidden{opacity:.35;border-style:dashed;background:#e3e8ef}
+html body .music592-editor #music592_error:empty{display:none}
+html body .music592-editor .music617-toolbar input[hidden]{display:none!important}
+@media(max-width:1100px){html body .music592-editor .music617-toolbar{grid-template-columns:1.3fr 1fr}.music617-toolbar .music617-toolbox:last-child{grid-column:1/-1}.music617-tool-actions{min-height:36px}}
+@media(max-width:800px){html body .music592-editor .modal-body{display:flex;flex-direction:column}.music617-toolbar{width:100%;box-sizing:border-box}.music617-editor-info{width:100%}html body .music592-editor #music592_controls{width:100%;display:flex;flex-direction:column}.music617-preview{width:100%}.music617-head-actions{gap:5px}.music617-preview-button{padding:8px;font-size:11px}.music617-icon{width:32px;height:32px;flex-basis:32px}.music592-editor .modal-head h3{font-size:15px}}
+@media(max-width:800px){html body .music592-editor .modal-body>*{flex-shrink:0}}
+@media(max-width:520px){html body .music592-editor .music617-toolbar{grid-template-columns:1fr}.music617-toolbar .music617-toolbox:last-child{grid-column:auto}.music592-editor .modal-head{flex-wrap:wrap}.music617-head-actions{width:100%;justify-content:space-between}.music617-editor-info{flex-direction:column;gap:5px}.music613-font-status{text-align:left!important}}
+/* One quiet entrance; original artwork, colors and final size stay intact. */
+#music615_onevoice{animation:music617-onevoice-in .65s ease-out both}
+@keyframes music617-onevoice-in{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+html.sgm603-reduce-motion #music615_onevoice{animation:none!important}
+@media(prefers-reduced-motion:reduce){#music615_onevoice{animation:none!important}}

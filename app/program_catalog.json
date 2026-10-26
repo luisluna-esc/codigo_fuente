@@ -1,0 +1,308 @@
+{
+  "format": "MinisterioMusicaProgramCatalog",
+  "version": 1,
+  "programs": {
+    "music_ministry": {
+      "id": "music_ministry",
+      "name": "Líder de Música",
+      "menu_label": "Sistema de Gestión de Música",
+      "report_title": "INFORME LÍDER DE MÚSICA",
+      "reading_report_title": "INFORME DE LECTURA DE LÍDER DE MÚSICA",
+      "description": "Tarjeta Líder de Música: prerrequisitos y áreas de Misión, Relación, Nutrición y Templo.",
+      "logo": "assets/ministerio_musica.png",
+      "accent": "#B47C16",
+      "bible_mode": "year_tracker",
+      "bible_requirement_id": "LM-NUT-1",
+      "source_document": "Tarjeta Líder de Música IASD — fotografías proporcionadas por el usuario",
+      "source_notes": "Se conserva el contenido impreso. Se normalizan tildes, puntuación y numeración para su identificación en SGL; las anotaciones manuscritas no se consideran requisitos.",
+      "areas": [
+        {
+          "code": "LM-PRE",
+          "short": "PRE",
+          "title": "00 - PRERREQUISITOS",
+          "requirements": [
+            {
+              "id": "LM-PRE-1",
+              "official_text": "01. Ser un miembro activo, bautizado, mayordomo fiel y poseer una carta de recomendación de la Junta de la iglesia local para iniciar la tarjeta del liderazgo del ministerio de música.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-PRE-2",
+              "official_text": "02. Tener un mínimo de 16 años para iniciar la tarjeta y un mínimo de 18 años para su investidura.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-PRE-3",
+              "official_text": "03. Estar registrado debidamente en el sistema del ministerio joven de la iglesia local como miembro activo.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-PRE-4",
+              "official_text": "04. Ser parte de una escuela de liderazgo Maranata Academy y realizar el curso de 10 horas de Liderazgo de Música.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-PRE-5",
+              "official_text": "05. Si cuenta con un ministerio de alabanza ya sea: coro, cuarteto, trío, instrumental, solista, etc., deberá registrarse en la misión correspondiente.",
+              "source_page": 2,
+              "tutor_instructions_default": "Si no cuenta con un ministerio de alabanza, explique su situación en el informe para que el responsable la evalúe; el sistema no lo aprueba automáticamente."
+            }
+          ]
+        },
+        {
+          "code": "LM-MIS",
+          "short": "MIS",
+          "title": "I. ÁREA MISIÓN",
+          "requirements": [
+            {
+              "id": "LM-MIS-1",
+              "official_text": "01. Organizar el ministerio de la música o ser parte de la organización en la iglesia local.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-MIS-2",
+              "official_text": "02. Ser parte de un grupo de adoración o ayudar a formar un grupo de adoración en su iglesia local o región que funcione activamente por un mínimo de 1 año.",
+              "source_page": 2
+            },
+            {
+              "id": "LM-MIS-3",
+              "official_text": "03. Apoyar al ministerio de música de la iglesia local en 4 programas de evangelismo; siendo protagonista en la predicación, adoración, coordinación de la alabanza u otra comisión que se relacione al ministerio de la música:",
+              "source_page": 2,
+              "selection": {
+                "min": 4,
+                "max": 5,
+                "options": [
+                  "a) Evangelismo de Misión Caleb",
+                  "b) Evangelismo de Semana Santa",
+                  "c) Evangelismo del Ministerio de la Mujer",
+                  "d) Evangelismo de Primavera",
+                  "e) Evangelismo de la iglesia local o plantación de iglesias"
+                ]
+              },
+              "tutor_instructions_default": "Seleccione los programas realizados y describa su participación en cada uno. La tarjeta solicita cuatro programas."
+            },
+            {
+              "id": "LM-MIS-4",
+              "official_text": "04. Dar un estudio bíblico al menos a 2 amigos no adventistas por un lapso de 6 meses como mínimo o hasta lograr el bautismo de uno de ellos.",
+              "source_page": 3
+            },
+            {
+              "id": "LM-MIS-5",
+              "official_text": "05. Organizar un proyecto misionero propio del ministerio de la música y ejecutarlo hasta lograr su realización. (Acciones solidarias, visitas a hospitales, asilos, orfanatos, etc.).",
+              "source_page": 3
+            },
+            {
+              "id": "LM-MIS-6",
+              "official_text": "06. Leer uno de los libros y presentar un resumen conforme al formato de informe de la Unión Boliviana:\na) Servicio Cristiano, de Elena G. de White.\nb) Obreros Evangélicos, de Elena G. de White.\nc) El evangelismo, de Elena G. de White.",
+              "source_page": 3,
+              "tutor_instructions_default": "Elija uno de los tres libros y complete el Informe de lectura con su título, autor y reflexión.",
+              "default_report_mode": "reading_report"
+            }
+          ]
+        },
+        {
+          "code": "LM-REL",
+          "short": "REL",
+          "title": "II. ÁREA RELACIÓN",
+          "requirements": [
+            {
+              "id": "LM-REL-1",
+              "official_text": "01. Ser parte de un grupo pequeño u organizar un grupo pequeño del ministerio de música en su iglesia local, por un período mínimo de 6 meses.",
+              "source_page": 3
+            },
+            {
+              "id": "LM-REL-2",
+              "official_text": "02. Preparar 3 temas del libro «La música que agrada a Dios», Daniel Plenc, y presentarlos en 3 programas de su iglesia local; adjuntar su informe y bosquejo de los temas dados.",
+              "source_page": 3
+            },
+            {
+              "id": "LM-REL-3",
+              "official_text": "03. En conjunto con el Ministerio Joven de la iglesia local organizar y/o desarrollar la adoración en el Maranata Adoración (Culto Joven) durante un año.",
+              "source_page": 3
+            },
+            {
+              "id": "LM-REL-4",
+              "official_text": "04. Preparar un organigrama del ministerio de la música desde la DSA hasta la iglesia local.",
+              "source_page": 3
+            },
+            {
+              "id": "LM-REL-5",
+              "official_text": "05. Leer el libro Liderazgo Cristiano, de Elena G. de White, y presentar un informe según el formato de la UB.",
+              "source_page": 3,
+              "tutor_instructions_default": "Complete el Informe de lectura del libro Liderazgo Cristiano, de Elena G. de White.",
+              "default_report_mode": "reading_report"
+            },
+            {
+              "id": "LM-REL-6",
+              "official_text": "06. Participar en la organización de un encuentro social de camaradería Cristocéntrico con el Ministerio Joven de la iglesia local.",
+              "source_page": 3
+            }
+          ]
+        },
+        {
+          "code": "LM-NUT",
+          "short": "NUT",
+          "title": "III. ÁREA NUTRICIÓN",
+          "requirements": [
+            {
+              "id": "LM-NUT-1",
+              "official_text": "01. Fortalecer la devoción personal a través del programa Reavivados por su Palabra o Bible Plan durante un año.",
+              "source_page": 4
+            },
+            {
+              "id": "LM-NUT-2",
+              "official_text": "02. Elaborar un informe sobre los 8 principios de salud y su importancia para un adorador.",
+              "source_page": 4
+            },
+            {
+              "id": "LM-NUT-3",
+              "official_text": "03. Apoyar y/o dirigir la adoración en el Maranata Class o la coordinación de Escuela Sabática de la iglesia local por un período mínimo de 6 meses.",
+              "source_page": 4
+            },
+            {
+              "id": "LM-NUT-4",
+              "official_text": "04. Leer el libro La música, de Elena G. de White, y rendir una prueba en su misión.",
+              "source_page": 4
+            },
+            {
+              "id": "LM-NUT-5",
+              "official_text": "05. Participar en un curso sobre las Creencias Fundamentales de la IASD, promovido por su misión o región.",
+              "source_page": 4
+            },
+            {
+              "id": "LM-NUT-6",
+              "official_text": "06. Representar gráficamente los siguientes versículos y memorizar 4 de ellos:",
+              "source_page": 4,
+              "selection": {
+                "min": 4,
+                "max": 11,
+                "options": [
+                  "a) Salmos 98:4",
+                  "b) Job 35:10",
+                  "c) Salmos 33:2",
+                  "d) Jueces 5:3",
+                  "e) Nehemías 12:27",
+                  "f) Salmos 27:6",
+                  "g) Salmos 95:2",
+                  "h) Efesios 5:19–20",
+                  "i) Colosenses 3:16",
+                  "j) 1 Crónicas 25:1",
+                  "k) 2 Crónicas 5:12–14"
+                ]
+              },
+              "tutor_instructions_default": "Represente gráficamente todos los versículos de la lista y marque los que ha memorizado (como mínimo cuatro). Incluya las representaciones en el informe o como fotografías."
+            },
+            {
+              "id": "LM-NUT-7",
+              "official_text": "07. Escoger uno de los siguientes ítems:",
+              "source_page": 5,
+              "selection": {
+                "min": 1,
+                "max": 1,
+                "options": [
+                  "a) Formación de liderazgo o dirección musical",
+                  "b) Formación de alabanza",
+                  "c) Formación de instrumento"
+                ]
+              },
+              "option_details": {
+                "a) Formación de liderazgo o dirección musical": "1. Leer el libro Liderazgo Cristiano de Elena de White y presentar un resumen conforme al formato de informe de la UB.\n2. Conocer un mínimo de 30 himnos del himnario adventista y presentar un informe de la historia de 3 himnos que te identifican.\n3. Discipular a un aspirante para involucrarse al ministerio de música de la iglesia local.\n4. Dirigir una cantata, concierto o encuentro de música de la iglesia local en un programa especial.",
+                "b) Formación de alabanza": "1. Componer y presentar una música adventista de autoría propia con letra y algún instrumento de apoyo.\n2. Dirigir el espacio de cantos de su iglesia local en un mínimo de 6 meses.\n3. Enseñar a una o más personas a cantar para presentar una ofrenda musical, ya sea dúo, trío, cuarteto o vocal.",
+                "c) Formación de instrumento": "1. Armonizar un tema musical y presentar la partitura o el arreglo correspondiente para 2 instrumentos mínimamente.\n2. Tocar un instrumento en la iglesia local por un período mínimo de 6 meses.\n3. Enseñar a un mínimo de 1 persona a tocar un himno con un instrumento musical."
+              },
+              "training_requirements": {
+                "a) Formación de liderazgo o dirección musical": [
+                  "Leer el libro Liderazgo Cristiano de Elena de White y presentar un resumen conforme al formato de informe de la UB.",
+                  "Conocer un mínimo de 30 himnos del himnario adventista y presentar un informe de la historia de 3 himnos que te identifican.",
+                  "Discipular a un aspirante para involucrarse al ministerio de música de la iglesia local.",
+                  "Dirigir una cantata, concierto o encuentro de música de la iglesia local en un programa especial."
+                ],
+                "b) Formación de alabanza": [
+                  "Componer y presentar una música adventista de autoría propia con letra y algún instrumento de apoyo.",
+                  "Dirigir el espacio de cantos de su iglesia local en un mínimo de 6 meses.",
+                  "Enseñar a una o más personas a cantar para presentar una ofrenda musical, ya sea dúo, trío, cuarteto o vocal."
+                ],
+                "c) Formación de instrumento": [
+                  "Armonizar un tema musical y presentar la partitura o el arreglo correspondiente para 2 instrumentos mínimamente.",
+                  "Tocar un instrumento en la iglesia local por un período mínimo de 6 meses.",
+                  "Enseñar a un mínimo de 1 persona a tocar un himno con un instrumento musical."
+                ]
+              },
+              "tutor_instructions_default": "Elija una sola formación y desarrolle todos sus puntos. Las otras dos opciones no son obligatorias. Incluya en el informe el detalle y las evidencias de los puntos de la formación elegida."
+            },
+            {
+              "id": "LM-NUT-8",
+              "official_text": "08. Explicar y saber el código de ética de un adorador de la IASD.",
+              "source_page": 5
+            },
+            {
+              "id": "LM-NUT-9",
+              "official_text": "09. Estar suscrito al folleto de escuela sabática y contar con una Biblia personal de estudio y su himnario adventista.",
+              "source_page": 5
+            }
+          ]
+        },
+        {
+          "code": "LM-TEM",
+          "short": "TEM",
+          "title": "IV. ÁREA TEMPLO",
+          "requirements": [
+            {
+              "id": "LM-TEM-1",
+              "official_text": "01. Elaborar un diario personal con el estudio de 40 madrugadas sobre adoración, asociando cada tema con un himno o cántico.",
+              "source_page": 6
+            },
+            {
+              "id": "LM-TEM-2",
+              "official_text": "02. Participar en la planificación, organización y ejecución del programa de adoración en su iglesia local, en coordinación con el director de música, por un mínimo de un semestre.",
+              "source_page": 6
+            },
+            {
+              "id": "LM-TEM-3",
+              "official_text": "03. Participar con el ministerio de la música de la iglesia local en 5 de los siguientes proyectos:",
+              "source_page": 6,
+              "selection": {
+                "min": 5,
+                "max": 12,
+                "options": [
+                  "a) 10 días de oración",
+                  "b) Semana de Oración Joven",
+                  "c) Día mundial de la juventud",
+                  "d) Impacto Esperanza",
+                  "e) Basta de Silencio",
+                  "f) Vida por Vidas",
+                  "g) Proyecto Bálsamo",
+                  "h) Campamento de Verano",
+                  "i) Musical: «Más amor en Navidad»",
+                  "j) Convención Joven",
+                  "k) Evento de Misión",
+                  "l) Otro"
+                ]
+              },
+              "tutor_instructions_default": "Seleccione al menos cinco proyectos y describa su participación. Si selecciona Otro, indique el nombre del proyecto."
+            },
+            {
+              "id": "LM-TEM-4",
+              "official_text": "04. Tener conocimientos básicos en los siguientes aspectos:",
+              "source_page": 6,
+              "selection": {
+                "type": "all",
+                "options": [
+                  "a) Habilidad para dirigir el canto congregacional (batuteo)",
+                  "b) Manejo adecuado del micrófono y sus accesorios",
+                  "c) Uso del equipo audiovisual"
+                ]
+              }
+            },
+            {
+              "id": "LM-TEM-5",
+              "official_text": "05. Preparar un repertorio de canto congregacional para diferentes programas de la iglesia (mínimo 10), incluyendo:\na) Escuela Sabática.\nb) Culto Divino.\nc) Santa Cena.\nd) Programas oficiales promovidos por la iglesia.\ne) Investiduras.\nf) Sepelios.\ng) Dedicación de niños.\nh) Bautismos.\ni) Otro.",
+              "source_page": 6,
+              "tutor_instructions_default": "Presente un repertorio de al menos diez cantos e indique para qué programas de la iglesia se utilizará. Si incluye Otro, describa el programa."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

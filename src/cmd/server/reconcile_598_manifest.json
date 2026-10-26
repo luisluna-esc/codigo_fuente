@@ -1,0 +1,12 @@
+{
+  "actorId": "usr_e5aecdbe-3c09-4078-92ab-4eccaa1afdc0",
+  "sourceGeneration": 2,
+  "generation": 3,
+  "restoreId": "repair593_b3d85f04a5826d9547b65d07853b74e7",
+  "passwordBefore": "b778f46bf5c84313512d175f1fd1021fe18c59f2e51d165d6c153fa1f20a3929",
+  "patches": {
+    "SGL-ADM-1AFDC0-B8026CE89A3D2E": "284ca9918378c6d736169b71c5971f0f4777d389ad83f3c6780e0bbe7599c9ee",
+    "SGL-ADM-1AFDC0-76ACF9BA57B5E8": "ec5d5ec3dea06fcc772744b4c37ccbfc48cc472690e26f9ea1f7862d7060c0c4",
+    "SGL-ADM-1AFDC0-D74D9F35513C18": "9dde54dd84f6d21df6fb97b268779188a63d266b816d5a4a5b8326fade006f16"
+  }
+}

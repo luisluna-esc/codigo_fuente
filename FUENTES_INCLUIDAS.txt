@@ -1,0 +1,134 @@
+FUENTES INCORPORADAS · MINISTERIO DE LA MÚSICA ONLINE 6.2.6
+
+Se incorporan en el ejecutable del servidor. El navegador las recibe de ese
+servidor y el PDF las lleva incrustadas; no hay descargas a servicios de
+fuentes de Internet ni instalación manual en el equipo destinatario.
+
+Se conservan los archivos exactos de las plantillas proporcionadas, incluyendo
+Arial Narrow cuando así estaba guardado. Se añaden de los archivos enviados
+Arial normal, negrita, cursiva y negrita cursiva. Las copias idénticas se omiten.
+
+Arial: Regular, Bold, Bold Italic, Italic
+Arial Narrow: Bold, Regular
+DejaVu Sans: Bold, Book
+DejaVu Sans Mono: Bold, Bold Oblique, Oblique, Book
+DejaVu Serif: Bold, Book
+Exmouth: Regular
+French Script MT: Regular
+Gabriola: Regular
+Georgia: Regular, Bold, Italic, Bold Italic
+Gill Sans MT: Bold, Regular
+Great Vibes: Regular
+OCR A Extended: Regular
+OptimusPrinceps: Regular
+a Big Deal: Regular
+
+Inventario de 27 archivos únicos con SHA-256:
+
+DejaVu Sans · Bold
+DejaVuSans-Bold.ttf
+SHA-256 46cac90f4ad1786fe0b228eca346e49e78bda6994b1f652765291756c217ca01
+
+DejaVu Sans · Book
+DejaVuSans.ttf
+SHA-256 9fa2216d85ce807dfa1f89ce8bd9ad0d7751f4be36563a473f1b677c45da53b5
+
+DejaVu Sans Mono · Bold
+DejaVuSansMono-Bold.ttf
+SHA-256 3a3c502eeff669a231549e80df9f7c49de109bafe303170409e905d0b31a38fe
+
+DejaVu Sans Mono · Bold Oblique
+DejaVuSansMono-BoldOblique.ttf
+SHA-256 a5251173370e30760e6919711dcd33e149d216ca4814eb74332bda03fcc7e834
+
+DejaVu Sans Mono · Oblique
+DejaVuSansMono-Oblique.ttf
+SHA-256 3d7955616e69721f7edb8e1b7a580f8fbd7d737111c6b54266ddc1d9ef13202f
+
+DejaVu Sans Mono · Book
+DejaVuSansMono.ttf
+SHA-256 c805f9436dbc268644c1d9584f01a601a653e028e08fd74b9b949f6cf8304d88
+
+DejaVu Serif · Bold
+DejaVuSerif-Bold.ttf
+SHA-256 750e8a1c0c8275edc2c87783a2b336b51d546f56efb238bf23c8cb09ca4bcd64
+
+DejaVu Serif · Book
+DejaVuSerif.ttf
+SHA-256 6a08aba4ba6784b593647ecd734e31743c429485b4b89cf581335d22203d25ea
+
+OptimusPrinceps · Regular
+Imported624_06728ee969ed5f5e52747f167be98a61303dffbe4973a83971cb18a9b002d5da.ttf
+SHA-256 06728ee969ed5f5e52747f167be98a61303dffbe4973a83971cb18a9b002d5da
+
+OCR A Extended · Regular
+Imported624_2b058a75ff9336c703e48b618ef759906dc9e37712e27698f74aa3ec0b949346.ttf
+SHA-256 2b058a75ff9336c703e48b618ef759906dc9e37712e27698f74aa3ec0b949346
+
+Arial Narrow · Bold
+Imported624_6c4a4b643461def5411e0217b74a625dcf2fb681252ef5da1db0af4eae80aa7e.ttf
+SHA-256 6c4a4b643461def5411e0217b74a625dcf2fb681252ef5da1db0af4eae80aa7e
+
+Arial Narrow · Regular
+Imported624_cad552553cf2a75afca01955751aaa115e2a64fd6c6eea42e1fbd236630b7e0a.ttf
+SHA-256 cad552553cf2a75afca01955751aaa115e2a64fd6c6eea42e1fbd236630b7e0a
+
+French Script MT · Regular
+Imported624_ddeda8f737249e8a2ac17f3e0757525e20631375cbb8b78d99b1462a146cef47.ttf
+SHA-256 ddeda8f737249e8a2ac17f3e0757525e20631375cbb8b78d99b1462a146cef47
+
+a Big Deal · Regular
+User618_4a3250b2326508bbdd66890b71edb83a8c79db92e1481942c486e6dcb5e8d8c3.otf
+SHA-256 4a3250b2326508bbdd66890b71edb83a8c79db92e1481942c486e6dcb5e8d8c3
+
+Great Vibes · Regular
+User618_8671b4332bff26a2ca32c7388a2929320e0ade036e460bd76cd1a22abbd4d5b4.ttf
+SHA-256 8671b4332bff26a2ca32c7388a2929320e0ade036e460bd76cd1a22abbd4d5b4
+
+Gill Sans MT · Bold
+User618_c95e47d509eada17f78d730010a5bbb69f60a940c17df6e4e7354c62262c1ab8.ttf
+SHA-256 c95e47d509eada17f78d730010a5bbb69f60a940c17df6e4e7354c62262c1ab8
+
+Gabriola · Regular
+User618_ddd852f9e43a5e81af62a3f6654324ba7553d7d66101ab848abc1bd2d626ac4b.ttf
+SHA-256 ddd852f9e43a5e81af62a3f6654324ba7553d7d66101ab848abc1bd2d626ac4b
+
+Exmouth · Regular
+User618_e9ea561582e3edf3bc9f5ecc6e79f1371c617942f8c3c5a7e11980871e451284.ttf
+SHA-256 e9ea561582e3edf3bc9f5ecc6e79f1371c617942f8c3c5a7e11980871e451284
+
+Gill Sans MT · Regular
+User618_f6664b244192ab4cf3a58bb6a653700d1f345d03bb8879888bcea1b6f8f3f97c.ttf
+SHA-256 f6664b244192ab4cf3a58bb6a653700d1f345d03bb8879888bcea1b6f8f3f97c
+
+Arial · Regular
+arial.ttf
+SHA-256 c9b76220a5be42ead4733611e417cd65c5fd8aeaa33eb56576ac378a37d130a1
+
+Arial · Bold
+arialbd.ttf
+SHA-256 766f06ac8761f82f25d032a220e89438f6064591af9915061f20b949efdedf69
+
+Arial · Bold Italic
+arialbi.ttf
+SHA-256 e432c1b3568bd207e30e3d52d41e6431ea53a679eb52dd79b1a36aa6a4f3b994
+
+Arial · Italic
+ariali.ttf
+SHA-256 79a5742b865cf06891d4ae43e42cac0e5169c7b7b06b5b3c24ef8e0966d27b62
+
+Georgia · Regular
+georgia.ttf
+SHA-256 38dffcaf1fac89492f7c56c600a14daf36ae42f7c21985cd4134ae113124a58f
+
+Georgia · Bold
+georgiab.ttf
+SHA-256 72a6cd94fab6c179392075d3fb361e269cdddfad41bb7ab385fa22a37e49a900
+
+Georgia · Italic
+georgiai.ttf
+SHA-256 d3e4bad27651d120ac8f2cea42cf4b4f077264fb243f66b3caffcfd35465f49b
+
+Georgia · Bold Italic
+georgiaz.ttf
+SHA-256 3f9e512f82eaf6f1b7869b82013fb79f6eaf1a41e75a0e7b96f31f35b1022ae4
