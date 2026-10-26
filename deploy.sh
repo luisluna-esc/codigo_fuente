@@ -18,7 +18,15 @@ echo "== Cambiando el contenedor"
 docker stop -t 60 musica > /dev/null 2>&1 || true
 docker rm musica > /dev/null 2>&1 || true
 
+# /root/musica-app.env lleva MUSICA_DATABASE_URL: con ella el sistema guarda en PostgreSQL
+# (base musica, esquema legacy). Sin ese archivo guarda en /opt/musica/data como antes.
+DB_ARGS=()
+if [ -f /root/musica-app.env ]; then
+  DB_ARGS=(--env-file /root/musica-app.env --add-host host.docker.internal:host-gateway)
+fi
+
 docker run -d --name musica --restart unless-stopped --stop-timeout 60 \
+  "${DB_ARGS[@]}" \
   -v "$ROOT/data:/data" \
   -p 127.0.0.1:5092:8796 musica:latest > /dev/null
 
@@ -27,5 +35,5 @@ docker image prune -f > /dev/null
 echo "== Revisando"
 sleep 5
 docker ps --format "   {{.Names}}: {{.Status}}" | grep musica
-echo "   sitio: $(curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8092/)"
-echo "Listo: http://148.230.73.226:8092"
+echo "   sitio: $(curl -s -o /dev/null -w "%{http_code}" https://musica.148-230-73-226.sslip.io/)"
+echo "Listo: https://musica.148-230-73-226.sslip.io"

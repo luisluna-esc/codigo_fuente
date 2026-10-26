@@ -323,6 +323,9 @@ func (s *Server) loadLegacy() (legacyStore, error) {
 			s.legacyPersistedFilesSig = legacyFilesSignature(st.State.Files)
 			return st, nil
 		} else if err != nil {
+			if legacyStorageStrict() {
+				return legacyStore{}, err
+			}
 			s.noteSQLiteFallback(err)
 			s.legacyStorageMode = "json-fallback"
 		}
@@ -341,6 +344,9 @@ func (s *Server) loadLegacy() (legacyStore, error) {
 			s.preservePre517LegacyJSON()
 			s.legacyStorageMode = "sqlite"
 		} else {
+			if legacyStorageStrict() {
+				return legacyStore{}, err
+			}
 			s.noteSQLiteFallback(err)
 			s.legacyStorageMode = "json-fallback"
 		}
@@ -373,6 +379,9 @@ func (s *Server) saveLegacy(st legacyStore) error {
 			s.legacyPersistedFilesSig = fileSig
 			return nil
 		} else {
+			if legacyStorageStrict() {
+				return err
+			}
 			s.noteSQLiteFallback(err)
 			s.legacyStorageMode = "json-fallback"
 		}

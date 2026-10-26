@@ -51,6 +51,9 @@ func legacySQLiteRuntimeAvailable() bool {
 	return true
 }
 
+// En Windows, si SQLite falla se sigue con JSON (comportamiento de siempre).
+func legacyStorageStrict() bool { return false }
+
 func sqliteCString(ptr uintptr) string {
 	if ptr == 0 {
 		return ""
