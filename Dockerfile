@@ -18,6 +18,9 @@ FROM alpine:3.20 AS runtime
 RUN apk add --no-cache tzdata ca-certificates \
     && adduser -D -H -u 10001 musica
 ENV TZ=America/La_Paz
+# Memoria: el recolector de Go libera antes de pasar de 2 GiB (es un límite suave; el servidor tiene 7,8 GB
+# compartidos con InvenTrack y FundTrack). Sin él, el uso crecía hasta que el sistema mataba el proceso.
+ENV GOMEMLIMIT=2GiB
 
 WORKDIR /srv
 COPY --from=build /out/ServidorMusica /srv/ServidorMusica

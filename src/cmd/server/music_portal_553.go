@@ -486,6 +486,9 @@ func musicValidatePatch553(patch any, db map[string]any) bool {
 	return true
 }
 
+// Peticiones de Música que copian la base a la vez (ver musicPortal553).
+var musicHeavySlots553 = make(chan struct{}, 4)
+
 func (s *Server) musicPortal553(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		prefix := strings.HasPrefix(r.URL.Path, musicAPI553+"/")
@@ -586,6 +589,15 @@ func (s *Server) musicPortal553(next http.Handler) http.Handler {
 			return
 		}
 		actorID, role := sess.UserID, sess.Role
+		// Cada petición trabaja con su propia copia completa de la base (y arma su respuesta en
+		// memoria). Sin límite, muchas pantallas a la vez sumaban varios GB y el sistema mataba
+		// el servidor por falta de memoria. Las demás esperan su turno (normalmente menos de 1 s).
+		select {
+		case musicHeavySlots553 <- struct{}{}:
+			defer func() { <-musicHeavySlots553 }()
+		case <-r.Context().Done():
+			return
+		}
 		s.mu.Lock()
 		state, err := s.loadLegacy()
 		state.State.Database = cloneAny(state.State.Database)

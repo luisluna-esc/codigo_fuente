@@ -6,6 +6,7 @@
 - Guardado de archivos incremental: solo se escriben los archivos nuevos o modificados, se quitan los eliminados y se corrige el orden de los demás sin volver a enviar su contenido. El primer guardado tras actualizar reescribe todo una vez (cambia la clave interna de `legacy.sgl_files`: ahora es el id del archivo).
 - La comprobación de conexión ya no espera al candado global ni copia la base. Con un guardado en curso responde con la sesión vigente; con el candado libre sigue rechazando a quien perdió el acceso a Música.
 - Pantalla más tolerante: la comprobación periódica espera hasta 30 s y bloquea solo tras dos fallas seguidas. Si falla una llamada, primero se comprueba si el servidor responde antes de bloquear.
+- Caídas por falta de memoria: el sistema operativo mataba el servidor (5 a 6,7 GB en uso) porque cada petición de Música copia la base completa y no había límite de peticiones simultáneas. Ahora como máximo 4 peticiones hacen esa copia a la vez (las demás esperan su turno) y la imagen fija `GOMEMLIMIT=2GiB` para que el recolector de memoria libere antes.
 - El paquete `music-runtime.js` (y `auth-boot.js`) se cargan con una revisión nueva (`&r=2`) para que los navegadores no usen la copia guardada en caché.
 
 ## 6.2.6 · 22 de octubre de 2026
