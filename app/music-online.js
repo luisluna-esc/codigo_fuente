@@ -1,9 +1,11 @@
 'use strict';
 (()=>{
- const esc=window.esc,P='music_ministry';let checking=false,locked=false,dataStatus='';
+ const esc=window.esc,P='music_ministry';let checking=false,locked=false,dataStatus='',failures=0;
  const blockedPages=new Set(['drive','conflicts','sync_approvals','classes','clubs','leadership']);
  function lockConnection(message='No hay conexión con el servidor. Reconecta para continuar.'){locked=true;if(document.getElementById('music_connection_lock'))return;const layer=document.createElement('div');layer.id='music_connection_lock';layer.style.cssText='position:fixed;inset:0;z-index:2147483640;background:#10283aeb;display:grid;place-items:center;padding:24px';layer.innerHTML=`<section class="card" style="max-width:500px"><h2>Conexión interrumpida</h2><p>${esc(message)}</p><p>El contenido abierto permanece en esta pestaña. No cierres ni recargues hasta recuperar la conexión y confirmar el guardado.</p><button class="btn primary" onclick="MusicaOnline.checkConnection()">Reintentar conexión</button></section>`;document.body.append(layer);}
- async function checkConnection(){if(checking)return false;checking=true;try{const token=database?.settings?.serverToken;if(!token)return false;const r=await fetch('/api/remote/session',{cache:'no-store',headers:{Authorization:'Bearer '+token},signal:AbortSignal.timeout(12000)});if(r.status===401||r.status===403){window.MusicLogin?.clear();location.reload();return false;}if(!r.ok)throw Error('El servidor no está disponible.');locked=false;document.getElementById('music_connection_lock')?.remove();return true;}catch{lockConnection();return false;}finally{checking=false;}}
+ // Un servidor ocupado guardando no es una conexión perdida: la consulta periódica espera hasta 30 s y
+ // solo bloquea tras dos fallas seguidas; el botón Reintentar y los errores de guardado bloquean al primer fallo.
+ async function checkConnection(periodic=false){if(checking)return false;checking=true;try{const token=database?.settings?.serverToken;if(!token)return false;const r=await fetch('/api/remote/session',{cache:'no-store',headers:{Authorization:'Bearer '+token},signal:AbortSignal.timeout(30000)});if(r.status===401||r.status===403){window.MusicLogin?.clear();location.reload();return false;}if(!r.ok)throw Error('El servidor no está disponible.');failures=0;locked=false;document.getElementById('music_connection_lock')?.remove();return true;}catch{failures++;if(!periodic||failures>=2||locked)lockConnection();return false;}finally{checking=false;}}
  // No offline shell, cache preparation or progress-recovery UI is installed.
  sglPrepareOfflineShell=async()=>false;window.sglPrepareOfflineShell=sglPrepareOfflineShell;
  sglApplyOfflineMode=function(value){if(value)lockConnection();};window.sglApplyOfflineMode=sglApplyOfflineMode;
@@ -13,7 +15,7 @@
  const nav=navItems;navItems=function(user){return nav(user).filter(([page])=>!blockedPages.has(page));};window.navItems=navItems;
  const navigate=go;go=function(page,...args){if(locked&&page!=='profile')return;if(blockedPages.has(page))return toast('Esta función no está disponible en Música.');return navigate.call(this,page,...args);};window.go=go;
  const localNative=nativeRequest;nativeRequest=async function(path,...args){if(/google|drive|oauth/i.test(path))throw Error('Esta integración no está disponible.');return localNative.call(this,path,...args);};window.nativeRequest=nativeRequest;
- const api=v3Api;v3Api=async function(path,options,...args){if(/\/google\/|\/reports\/drive\/|\/recovery\/|\/reconcile598/.test(path))throw Error('Esta integración no está disponible.');if(navigator.onLine===false){lockConnection();throw Error('Necesitas conexión con el servidor para continuar.');}try{return await api.call(this,path,options,...args);}catch(err){if(!err.status&&(/fetch|network|servidor|conexión|Failed/i.test(err.message)||['AbortError','TimeoutError'].includes(err.name)))lockConnection();throw err;}};window.v3Api=v3Api;
+ const api=v3Api;v3Api=async function(path,options,...args){if(/\/google\/|\/reports\/drive\/|\/recovery\/|\/reconcile598/.test(path))throw Error('Esta integración no está disponible.');if(navigator.onLine===false){lockConnection();throw Error('Necesitas conexión con el servidor para continuar.');}try{return await api.call(this,path,options,...args);}catch(err){if(!err.status&&(/fetch|network|servidor|conexión|Failed/i.test(err.message)||['AbortError','TimeoutError'].includes(err.name)))checkConnection();throw err;}};window.v3Api=v3Api;
  const save=persist;persist=async function(...args){if(args[0]!==false&&(locked||navigator.onLine===false))throw Error('Reconecta con el servidor antes de guardar.');return save.apply(this,args);};window.persist=persist;
  if(typeof v3LocalRemoteApi==='function'){v3LocalRemoteApi=async()=>({ok:true,active:false,available:false});window.v3LocalRemoteApi=v3LocalRemoteApi;}
  const login=renderRemoteLogin;renderRemoteLogin=function(message=''){window.MusicLogin?.clear();window.MusicLogin?.login(message);};window.renderRemoteLogin=renderRemoteLogin;
@@ -46,5 +48,5 @@
 
  window.MusicaOnline={lockConnection,checkConnection,savePreferences,exportData,compressPhotos};
  window.addEventListener('offline',()=>lockConnection());window.addEventListener('online',()=>checkConnection());
- setInterval(()=>{if(!document.hidden&&currentUser())checkConnection();},20000);
+ setInterval(()=>{if(!document.hidden&&currentUser())checkConnection(true);},20000);
 })();

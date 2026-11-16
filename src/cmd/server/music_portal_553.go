@@ -554,6 +554,32 @@ func (s *Server) musicPortal553(next http.Handler) http.Handler {
 				return
 			}
 		}
+		// Comprobación de conexión (cada 20 s por pantalla abierta): no espera al candado
+		// global ni copia la base. Si un guardado está en curso, responde con la sesión
+		// vigente y el acceso a Música se vuelve a comprobar en la siguiente consulta;
+		// antes quedaba en fila detrás del guardado y la pantalla mostraba
+		// "Conexión interrumpida" aunque el servidor seguía funcionando.
+		if path == "/api/remote/session" && hasSession && request.Method == http.MethodGet {
+			if s.mu.TryLock() {
+				state, err := s.loadLegacy()
+				allowed := false
+				if err == nil {
+					db := legacyMap(state.State.Database)
+					allowed = musicAllowed553(db, legacyUser(db, sess.UserID))
+				}
+				s.mu.Unlock()
+				if err != nil {
+					legacyError(w, 500, "No se pudieron consultar los datos del servidor.", nil)
+					return
+				}
+				if !allowed {
+					legacyError(w, 403, "Tu cuenta no tiene acceso activo a Música.", nil)
+					return
+				}
+			}
+			next.ServeHTTP(w, request)
+			return
+		}
 		if path == "/api/accounts/view" && hasSession {
 			request.Header.Set("Accept-Encoding", r.Header.Get("Accept-Encoding"))
 			next.ServeHTTP(w, request)

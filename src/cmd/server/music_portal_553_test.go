@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"strings"
 	"testing"
+	"time"
 )
 
 func musicFixture553(t *testing.T) (*Server, http.Handler) {
@@ -261,5 +262,51 @@ func TestMusicPortalPresenceUsesMusicSessions553(t *testing.T) {
 	users := anySlice548(p["users"])
 	if code != 200 || len(users) != 1 || stringValue(legacyMap(users[0])["userId"]) != "a" || p["count"] != float64(1) {
 		t.Fatal("Music presence counted a general SGL session", code, p)
+	}
+}
+
+// La comprobación de conexión responde aunque un guardado tenga tomado el candado global,
+// y con el candado libre sigue rechazando a quien perdió el acceso a Música.
+func TestMusicSessionCheckDoesNotWaitForSaves(t *testing.T) {
+	s, h := musicFixture553(t)
+	code, login := musicLogin553(t, h, "a", true)
+	if code != 200 {
+		t.Fatal(code, login)
+	}
+	token := stringValue(login["sessionToken"])
+
+	s.mu.Lock()
+	done := make(chan int, 1)
+	go func() {
+		code, _ := musicCall553(t, h, "GET", musicAPI553+"/api/remote/session", token, nil)
+		done <- code
+	}()
+	select {
+	case code = <-done:
+	case <-time.After(3 * time.Second):
+		s.mu.Unlock()
+		t.Fatal("la comprobación de conexión esperó al candado global")
+	}
+	s.mu.Unlock()
+	if code != 200 {
+		t.Fatal("con guardado en curso:", code)
+	}
+
+	s.mu.Lock()
+	st, err := s.loadLegacy()
+	if err == nil {
+		for _, raw := range legacyMap(st.State.Database)["modules"].([]any) {
+			if m := legacyMap(raw); m["id"] == musicProgram553 {
+				m["assignedUserIds"] = []any{"b"}
+			}
+		}
+		err = s.saveLegacy(st)
+	}
+	s.mu.Unlock()
+	if err != nil {
+		t.Fatal(err)
+	}
+	if code, _ = musicCall553(t, h, "GET", musicAPI553+"/api/remote/session", token, nil); code != 403 {
+		t.Fatal("sin acceso a Música respondió", code)
 	}
 }

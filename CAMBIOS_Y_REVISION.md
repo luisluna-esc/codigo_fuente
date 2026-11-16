@@ -1,5 +1,13 @@
 # Cambios y revisiones
 
+## 6.2.6 · corrección de "Conexión interrumpida" · 16 de noviembre de 2026
+
+- Causa: cada guardado que tocaba un archivo borraba y volvía a escribir en PostgreSQL todas las fotos y documentos mientras el servidor tenía tomado su candado global. Las demás pantallas esperaban detrás, la comprobación de conexión (cada 20 s, con 12 s de espera) vencía y aparecía "Conexión interrumpida" aunque el servidor seguía funcionando.
+- Guardado de archivos incremental: solo se escriben los archivos nuevos o modificados, se quitan los eliminados y se corrige el orden de los demás sin volver a enviar su contenido. El primer guardado tras actualizar reescribe todo una vez (cambia la clave interna de `legacy.sgl_files`: ahora es el id del archivo).
+- La comprobación de conexión ya no espera al candado global ni copia la base. Con un guardado en curso responde con la sesión vigente; con el candado libre sigue rechazando a quien perdió el acceso a Música.
+- Pantalla más tolerante: la comprobación periódica espera hasta 30 s y bloquea solo tras dos fallas seguidas. Si falla una llamada, primero se comprueba si el servidor responde antes de bloquear.
+- El paquete `music-runtime.js` (y `auth-boot.js`) se cargan con una revisión nueva (`&r=2`) para que los navegadores no usen la copia guardada en caché.
+
 ## 6.2.6 · 22 de octubre de 2026
 
 - Se retira el rótulo repetido de rol y nombre de página de la barra superior. Los títulos de cada página se mantienen en su contenido.

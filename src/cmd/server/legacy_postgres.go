@@ -65,6 +65,8 @@ var legacyPostgresKeys = []string{"database", "proposals", "messages", "notifica
 
 func legacySQLiteLoad(_ string) (legacyStore, bool, error) {
 	var out legacyStore
+	// Hasta leer los archivos no se sabe qué tiene la base: el próximo guardado los reescribe.
+	legacyPGFiles.forget()
 	db, err := legacyPostgres()
 	if err != nil {
 		return out, false, err
@@ -103,28 +105,41 @@ func legacySQLiteLoad(_ string) (legacyStore, bool, error) {
 			return out, false, fmt.Errorf("leer %s: %w", key, err)
 		}
 	}
-	rows, err := tx.QueryContext(ctx, "SELECT v FROM legacy.sgl_files ORDER BY ord")
+	rows, err := tx.QueryContext(ctx, "SELECT file_key, ord, v FROM legacy.sgl_files ORDER BY ord")
 	if err != nil {
 		return out, false, err
 	}
 	defer rows.Close()
 	out.State.Files = []any{}
+	keys, ords := []string{}, []int{}
 	for rows.Next() {
+		var key string
+		var ord int
 		var raw []byte
 		var item any
-		if err = rows.Scan(&raw); err != nil {
+		if err = rows.Scan(&key, &ord, &raw); err != nil {
 			return out, false, err
 		}
 		if err = legacySQLiteDecode(raw, &item); err != nil {
 			return out, false, err
 		}
 		out.State.Files = append(out.State.Files, item)
+		keys, ords = append(keys, key), append(ords, ord)
 	}
 	if err = rows.Err(); err != nil {
 		return out, false, err
 	}
+	// Se recuerda lo que hay en la base para que el próximo guardado escriba solo lo que cambie.
+	if saved, e := legacyFileRowsOf(keys, ords, out.State.Files); e == nil {
+		legacyPGFiles.set(saved)
+	} else {
+		legacyPGFiles.forget()
+	}
 	return out, true, nil
 }
+
+// Archivos guardados en legacy.sgl_files (ver legacy_files_delta.go).
+var legacyPGFiles legacyFileState
 
 func legacySQLiteSave(_ string, st legacyStore, persistFiles bool) error {
 	values := map[string]any{
@@ -156,20 +171,27 @@ func legacySQLiteSave(_ string, st legacyStore, persistFiles bool) error {
 			return fmt.Errorf("guardar %s: %w", key, err)
 		}
 	}
+	// Cuando cambiaron los archivos se escriben solo los nuevos o modificados (con lo guardado
+	// conocido); sin ese dato, se reescriben todos como antes. Sin persistFiles no se tocan.
 	if persistFiles {
-		if _, err = tx.ExecContext(ctx, "DELETE FROM legacy.sgl_files"); err != nil {
+		previous, known := legacyPGFiles.snapshot()
+		if !known {
+			previous = nil
+		}
+		next, stats, e := legacyWriteFiles(ctx, tx, st.State.Files, previous)
+		if e != nil {
+			legacyPGFiles.forget()
+			return e
+		}
+		if err = tx.Commit(); err != nil {
+			legacyPGFiles.forget()
 			return err
 		}
-		for i, raw := range st.State.Files {
-			payload, e := legacySQLiteEncode(raw)
-			if e != nil {
-				return e
-			}
-			key := fmt.Sprintf("%08d:%s", i, fmt.Sprint(legacyMap(raw)["id"]))
-			if _, err = tx.ExecContext(ctx, "INSERT INTO legacy.sgl_files (file_key, ord, v) VALUES ($1, $2, $3)", key, i, payload); err != nil {
-				return fmt.Errorf("guardar archivo: %w", err)
-			}
+		legacyPGFiles.set(next)
+		if stats.changed() {
+			log.Printf("Archivos guardados: %d escritos, %d quitados, %d reordenados (completo: %t)", stats.Written, stats.Deleted, stats.Reordered, stats.Full)
 		}
+		return nil
 	}
 	return tx.Commit()
 }
